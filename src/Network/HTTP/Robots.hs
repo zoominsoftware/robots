@@ -16,15 +16,14 @@ data Directive = Allow Path
                | Disallow Path
                | CrawlDelay Int
   deriving (Show,Eq)
--- this is an ugly hack, but i don't want to handle comments
--- everywhere.
+
+-- | parseRobots is the main entry point for parsing a robots.txt file.
 parseRobots :: ByteString -> Either String Robot
 parseRobots = parseOnly robotP
               . BS.unlines
               . filter ( (\x -> BS.null x || BS.head x /= '#' ) . BS.dropWhile (==' '))
               . BS.lines
 
-data Hole = Hole
 robotP :: Parser Robot
 robotP = many ((,) <$> agentP <*> many directiveP) <?> "robot"
 
