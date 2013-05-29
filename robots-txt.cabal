@@ -5,12 +5,12 @@ name:                robots-txt
 version:             0.1.0.2
 synopsis:            Parser for robots.txt
 description:         This is an attoparsec parser for robots.txt files
-homepage:            http://github.com/meanpath/robots-txt
+homepage:            http://github.com/meanpath/robots
 license:             BSD3
 license-file:        LICENSE
 author:              Mark Wotton
 maintainer:          mwotton@gmail.com
-bug-reports:         https://github.com/meanpath/robots-txt
+bug-reports:         https://github.com/meanpath/robots/issues
 -- copyright:
 category:            Web
 build-type:          Simple
