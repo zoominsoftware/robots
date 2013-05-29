@@ -16,6 +16,10 @@ category:            Web
 build-type:          Simple
 cabal-version:       >=1.8
 
+source-repository github
+  type: git
+  location: git://github.com/meanpath/robots-txt.git
+
 library
   exposed-modules:     Network.HTTP.Robots
   -- other-modules:
