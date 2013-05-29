@@ -4,7 +4,7 @@
 name:                robots-txt
 version:             0.1.0.0
 synopsis:            Parser for robots.txt
--- description:
+description:         This is an attoparsec parser for robots.txt files
 homepage:            http://github.com/meanpath/robots-txt
 license:             BSD3
 license-file:        LICENSE
