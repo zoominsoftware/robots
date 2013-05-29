@@ -1,0 +1,35 @@
+User-agent: *
+Disallow: /announce*
+Disallow: /suggest*
+Disallow: /reset*
+Disallow: /verify*
+Disallow: /profile*
+Disallow: /report*
+Disallow: /comment*
+Disallow: /tracker*
+Disallow: /img/*
+Disallow: /z/*
+Disallow: /low*
+Disallow: /any*
+
+# Hello robots!
+# Don't go over 1 request per second or the firewall will block your ISP
+#
+#					      _
+#					     ( )
+#					      H
+#					      H
+#					     _H_ 
+#					  .-'-.-'-.
+#					 /         \
+#					|           |
+#					|   .-------'._
+#					|  / /  '.' '. \
+#					|  \ \ @   @ / /
+#					|   '---------'
+#					|    _______|
+#					|  .'-+-+-+|
+#					|  '.-+-+-+|
+#					|    """""" |
+#					'-.__   __.-'
+#					     """

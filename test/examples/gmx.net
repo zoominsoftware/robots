@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /sid*
+Disallow: /themen/all/
+Disallow: /themen/newsticker/
+Disallow: /watch/
+
+# http://www.gmx.net/robots.txt

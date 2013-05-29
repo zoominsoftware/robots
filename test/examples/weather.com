@@ -1,0 +1,11 @@
+# /robots.txt
+User-agent: *
+Disallow: /cgi-bin
+Disallow: /fcgi-bin
+Disallow: /interact/photogallery/results.html
+Disallow: /interact/photogallery/details.html
+Disallow: /RealMedia
+Disallow: /search/partner
+Disallow: /search/enhancedlocalsearch
+Disallow: /search/sitesearch
+Disallow: /search/morelocations

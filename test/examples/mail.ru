@@ -1,0 +1,8 @@
+User-Agent: Yandex
+Allow: /$
+Disallow: /
+Host: mail.ru
+
+User-Agent: *
+Allow: /$
+Disallow: /

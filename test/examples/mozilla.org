@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /*/download/
+Disallow: /*/whatsnew/
+Disallow: /*/firstrun/
+Disallow: /b/*

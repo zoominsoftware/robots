@@ -1,0 +1,11 @@
+#Nothing interesting to see here, but there is a dance party
+#happening over here: http://www.youtube.com/watch?v=9vwZ5FQEUFg
+
+User-agent: *
+Disallow: /api/user?*
+Disallow:
+
+Sitemap: http://www.seomoz.org/blog-sitemap.xml
+Sitemap: http://www.seomoz.org/ugc-sitemap.xml
+Sitemap: http://www.seomoz.org/profiles-sitemap.xml
+Sitemap: http://app.wistia.com/sitemaps/2.xml

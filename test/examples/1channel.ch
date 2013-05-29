@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /db.php
+Disallow: /submit.php
+Disallow: /change_friendship.php
+Disallow: /comments/
+Disallow: /playlists/
+User-agent: ia_archiver
+Disallow: /
+User-agent: robtexbot
+Disallow: /

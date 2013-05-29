@@ -1,0 +1,16 @@
+User-agent: *
+disallow: /send/
+disallow: /photos/send/
+disallow: /user/
+disallow: *corrupted_video*
+disallow: *users_search*
+disallow: /search*q=*
+disallow: /signup*next=*
+disallow: /login*next=*
+disallow: /photos/ajax*
+disallow: /captcha*
+disallow: *view_post_print*
+disallow: /ajax*
+disallow: *embedded_video*
+disallow: /sendgame/
+disallow: /photos/view/

@@ -1,0 +1,11 @@
+User-agent: * 
+Disallow: /sid*
+Disallow: /watch/
+Disallow: /club_nossl/fm/
+
+User-agent: Googlebot-News
+Disallow: /magazine/nachrichten/newsticker/
+Disallow: /sid*
+Disallow: /watch/
+
+# http://web.de/robots.txt

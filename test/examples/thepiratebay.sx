@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow:
+Allow: /
+Sitemap: http://thepiratebay.sx/sitemap-googlish.xml.gz

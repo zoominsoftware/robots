@@ -1,0 +1,12 @@
+User-agent: *
+Sitemap: http://www.hardsextube.com/sitemap/sitemapindex.xml
+Disallow: /?search*page=*
+Disallow: /?search*sort=*
+Disallow: /?p=Search*
+Disallow: /dba.php*
+Disallow: /cdnurl.php*
+Disallow: /overlay.php*
+Disallow: /aplay.php*
+Disallow: /track.php*
+Disallow: /onPlayerAd.php*
+Disallow: /share.php*

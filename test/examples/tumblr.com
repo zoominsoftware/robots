@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /radar
+Disallow: /audio_file
+Disallow: /dashboard
+Disallow: /x
+Disallow: /svc/account
+Disallow: /dashboard/notes
+Disallow: /customize
+Disallow: /impixu

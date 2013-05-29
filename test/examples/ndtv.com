@@ -1,0 +1,20 @@
+User-agent: *
+Disallow: /mb/
+Disallow: /convergence/ndtv/story.aspx
+Disallow: /usopen09/*
+Disallow: /ndtvfuture/*
+Disallow: /ndtvfuture/ndtv/postcomments.aspx
+Disallow: /convergence/ndtv/processarchive.aspx
+Disallow: /olympics/* 
+Disallow: /images/ndtvvideo/*
+Disallow: /news/redirect/*
+Disallow: /convergence/ndtv/showcolumns.aspx
+Disallow: /convergence/ndtv/showflipped.aspx
+Disallow: /convergence/ndtv/showsports.aspx
+Disallow: /convergence/ndtv/elections-MP/MpSpecial/election.aspx
+Disallow: /news/india/*
+Disallow: /news/world/*
+Disallow: /news/technology/*
+Disallow: /news/feeds/*
+Disallow: /page/send-email/*
+
