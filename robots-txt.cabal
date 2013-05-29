@@ -9,7 +9,8 @@ homepage:            http://github.com/meanpath/robots-txt
 license:             BSD3
 license-file:        LICENSE
 author:              Mark Wotton
-maintainer:          mwotton@github.com
+maintainer:          mwotton@gmail.com
+bug-reports:         https://github.com/meanpath/robots-txt
 -- copyright:
 category:            Web
 build-type:          Simple
