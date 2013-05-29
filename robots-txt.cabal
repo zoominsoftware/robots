@@ -16,7 +16,7 @@ category:            Web
 build-type:          Simple
 cabal-version:       >=1.8
 
-source-repository github
+source-repository head
   type: git
   location: git://github.com/meanpath/robots-txt.git
 
