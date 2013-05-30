@@ -32,7 +32,7 @@ directiveP :: Parser Directive
 directiveP = choice [ Allow <$>      (string "Allow:"       >> skipSpace >> tokenP)
                     , Disallow <$>   (string "Disallow:"    >> skipSpace >> tokenP)
                     , CrawlDelay <$> (string "Crawl-delay:" >>  skipSpace >>decimal)
-                    ] <* skipSpace <?> "directive"
+                    ] <* commentsP <?> "directive"
 
 agentP :: Parser UserAgent
 agentP = do
@@ -41,5 +41,13 @@ agentP = do
   ((string "*" >> return Wildcard) <|>
    (Literal  <$> tokenP)) <* skipSpace <?> "agent"
 
+
+commentsP :: Parser ()
+commentsP = skipSpace >>
+            ((string "#" >> takeTill (=='\n') >> skipSpace) <|> return ())
+
 tokenP :: Parser ByteString
 tokenP = skipSpace >> takeTill isSpace <* skipSpace
+
+canAccess :: ByteString -> Robot -> Path -> Bool
+canAccess agent robots path = undefined

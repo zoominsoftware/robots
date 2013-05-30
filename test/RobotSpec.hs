@@ -42,12 +42,31 @@ spec = do
     it "can read allow directives" $ do
       (parseOnly directiveP "Allow: /\n") `shouldBe`
         Right (Allow "/")
-    it "should read an allow" $ do
+    it "should read a full robots.txt" $ do
       (parseOnly robotP "User-agent: *\nDisallow: /\n")
         `shouldBe` Right [(Wildcard, [Disallow "/"])]
+    it "should cope with end-of-line comments" $ do
+      (parseOnly robotP "User-agent: *\nDisallow: / # don't read my site\nAllow: /foo")
+        `shouldBe` Right [(Wildcard, [Disallow "/", Allow "/foo"])]
+
+
   describe "smoke test - check we can read all the robots.txt examples" $
 
     forM_ texts $ \(name,text) ->
       it ("should parse " ++ name) $ do
         let res = rights [parseRobots text]
         length res  `shouldBe` 1
+
+  describe "allowable" $ do
+    let robot = [(Wildcard, [Disallow "/", Allow "/anyone"]),
+                 (Literal "SpecialBot", [Allow "/", Allow "/only_special"])]
+    it "should allow access to anyone" $ do
+      canAccess "anyone"  robot "/anyone" `shouldBe` True
+    it "should deny access to root for most bots" $ do
+      canAccess "anyone"  robot "/" `shouldBe` False
+    it "should deny access to only_special for most bots" $ do
+      canAccess "anyone"  robot "/only_special" `shouldBe` False
+    it "allows access to specialbot" $ do
+      canAccess "SpecialBot"  robot "/" `shouldBe` True
+    it "allows access to specialbot special area" $ do
+      canAccess "SpecialBot"  robot "/only_special" `shouldBe` True
