@@ -3,10 +3,12 @@ module Network.HTTP.Robots where
 
 import qualified Data.ByteString.Char8 as BS
 import           Data.ByteString.Char8(ByteString)
-import Data.Attoparsec.Char8
+import Data.Attoparsec.Char8 hiding (skipSpace)
 import Control.Applicative
+import Data.List(find)
+import Data.Maybe(catMaybes)
 
-type Robot = [(UserAgent, [Directive])]
+type Robot = [([UserAgent], [Directive])]
 
 data UserAgent = Wildcard | Literal ByteString
   deriving (Show,Eq)
@@ -25,12 +27,24 @@ parseRobots = parseOnly robotP
               . BS.lines
 
 robotP :: Parser Robot
-robotP = many ((,) <$> agentP <*> many directiveP) <?> "robot"
+robotP = many ((,) <$> many1 agentP <*> many1 directiveP) <?> "robot"
 
+skipSpace :: Parser ()
+skipSpace = skipWhile (\x -> x==' ' || x == '\t')
 
 directiveP :: Parser Directive
 directiveP = choice [ Allow <$>      (string "Allow:"       >> skipSpace >> tokenP)
-                    , Disallow <$>   (string "Disallow:"    >> skipSpace >> tokenP)
+                    , (string "Disallow:"    >> skipSpace >>
+                       (choice [Disallow <$> tokenP,
+                                -- this requires some explanation.
+                                -- The RFC suggests that an empty
+                                -- Disallow line means anything is
+                                -- allowed. Being semantically
+                                -- equivalent to 'Allow: "/"',
+                                -- I have chosen to change it here
+                                -- rather than carry the bogus
+                                -- distinction around.
+                                endOfLine >> return (Allow "/") ] ))
                     , CrawlDelay <$> (string "Crawl-delay:" >>  skipSpace >>decimal)
                     ] <* commentsP <?> "directive"
 
@@ -39,15 +53,31 @@ agentP = do
   string "User-agent:"
   skipSpace
   ((string "*" >> return Wildcard) <|>
-   (Literal  <$> tokenP)) <* skipSpace <?> "agent"
+   (Literal  <$> tokenP)) <* skipSpace <* endOfLine <?> "agent"
 
 
 commentsP :: Parser ()
 commentsP = skipSpace >>
-            ((string "#" >> takeTill (=='\n') >> skipSpace) <|> return ())
+            ((string "#" >> takeTill (=='\n') >> skipSpace >> endOfLine) <|> return ())
 
 tokenP :: Parser ByteString
-tokenP = skipSpace >> takeTill isSpace <* skipSpace
+tokenP = skipSpace >> takeWhile1 (not . isSpace) <* skipSpace
 
+-- I lack the art to make this prettier.
 canAccess :: ByteString -> Robot -> Path -> Bool
-canAccess agent robots path = undefined
+canAccess _ _ "/robots.txt" = True -- special-cased
+canAccess agent robot path = case stanzas of
+  [] -> True
+  ((_,directives):_) -> matchingDirective directives
+  where stanzas = catMaybes [find ((Literal agent `elem`) . fst) robot,
+                             find ((Wildcard `elem`) . fst) robot]
+        matchingDirective [] = True
+        matchingDirective (x:xs) = case x of
+          Allow robot_path -> if robot_path `BS.isPrefixOf` path
+                              then True
+                              else matchingDirective xs
+          Disallow robot_path ->
+            if robot_path `BS.isPrefixOf` path
+            then False
+            else matchingDirective xs
+          _ -> matchingDirective xs
