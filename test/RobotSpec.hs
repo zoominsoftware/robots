@@ -44,13 +44,17 @@ spec = do
         Right (Allow "/")
     it "should read a full robots.txt" $ do
       (parseOnly robotP "User-agent: *\nDisallow: /\n")
-        `shouldBe` Right [([Wildcard], [Disallow "/"])]
+        `shouldBe` Right ([([Wildcard], [Disallow "/"])],[])
     it "should cope with end-of-line comments" $ do
       (parseOnly robotP "User-agent: *\nDisallow: / # don't read my site\nAllow: /foo")
-        `shouldBe` Right [([Wildcard], [Disallow "/", Allow "/foo"])]
+        `shouldBe` Right ([([Wildcard], [Disallow "/", Allow "/foo"])],[])
     it "can parse this stupid empty disallow line that the BNF suggests should be illegal" $ do
       (parseOnly robotP "User-agent: *\nDisallow:\n")
-        `shouldBe` Right ([([Wildcard], [Allow "/"])])
+        `shouldBe` Right (([([Wildcard], [Allow "/"])]),[])
+    it "ignores the sitemap extension (and any other unrecognised text" $ do
+      (parseOnly robotP "Sitemap: http:www.ebay.com/lst/PDP_US_main_index.xml\nUser-agent: *\nDisallow: /\n")
+        `shouldBe` Right (([([Wildcard], [Disallow "/"])]), ["Sitemap: http:www.ebay.com/lst/PDP_US_main_index.xml"])
+
 
   describe "smoke test - check we can read all the robots.txt examples" $
 
@@ -74,16 +78,16 @@ spec = do
   -- ganked from http://www.robotstxt.org/norobots-rfc.txt
   describe "canAccess" $ do
     let robot =
-          [([Literal "unhipbot"],
-            [Disallow "/"]),
-           ([Literal "webcrawler", Literal "excite"],
-            [Allow "/"]),
-           ([Wildcard],
-            [Disallow "/org/plans.html",
-             Allow "/org/",
-             Allow "/serv",
-             Allow "/~mak",
-             Disallow "/"])]
+          ([([Literal "unhipbot"],
+             [Disallow "/"]),
+            ([Literal "webcrawler", Literal "excite"],
+             [Allow "/"]),
+            ([Wildcard],
+             [Disallow "/org/plans.html",
+              Allow "/org/",
+              Allow "/serv",
+              Allow "/~mak",
+              Disallow "/"])], [])
 
 
 

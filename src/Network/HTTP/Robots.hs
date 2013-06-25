@@ -7,8 +7,11 @@ import Data.Attoparsec.Char8 hiding (skipSpace)
 import Control.Applicative
 import Data.List(find)
 import Data.Maybe(catMaybes)
+import Data.Either(partitionEithers)
 
-type Robot = [([UserAgent], [Directive])]
+type Robot = ([([UserAgent], [Directive])], [Unparsable])
+
+type Unparsable = ByteString
 
 data UserAgent = Wildcard | Literal ByteString
   deriving (Show,Eq)
@@ -27,7 +30,15 @@ parseRobots = parseOnly robotP
               . BS.lines
 
 robotP :: Parser Robot
-robotP = many ((,) <$> many1 agentP <*> many1 directiveP) <?> "robot"
+robotP = do
+  (dirs, unparsable) <- partitionEithers <$> many  (eitherP agentDirectiveP unparsableP) <?> "robot"
+  return (dirs, filter (/= "") unparsable)
+
+unparsableP = takeTill (=='\n') <* char '\n'
+
+agentDirectiveP = (,) <$> many1 agentP <*> many1 directiveP <?> "agentDirective"
+
+
 
 skipSpace :: Parser ()
 skipSpace = skipWhile (\x -> x==' ' || x == '\t')
@@ -66,7 +77,7 @@ tokenP = skipSpace >> takeWhile1 (not . isSpace) <* skipSpace
 -- I lack the art to make this prettier.
 canAccess :: ByteString -> Robot -> Path -> Bool
 canAccess _ _ "/robots.txt" = True -- special-cased
-canAccess agent robot path = case stanzas of
+canAccess agent (robot,_) path = case stanzas of
   [] -> True
   ((_,directives):_) -> matchingDirective directives
   where stanzas = catMaybes [find ((Literal agent `elem`) . fst) robot,
