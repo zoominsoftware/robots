@@ -11,6 +11,7 @@ import Data.Either
 import Data.Attoparsec.Char8
 import System.IO.Unsafe(unsafePerformIO)
 import qualified Data.ByteString.Char8 as BS
+import Control.Monad.IO.Class
 
 dirname :: String
 dirname = reverse $ dropWhile (/= '/') $ reverse __FILE__
@@ -54,6 +55,10 @@ spec = do
     it "ignores the sitemap extension (and any other unrecognised text" $ do
       (parseOnly robotP "Sitemap: http:www.ebay.com/lst/PDP_US_main_index.xml\nUser-agent: *\nDisallow: /\n")
         `shouldBe` Right (([([Wildcard], [Disallow "/"])]), ["Sitemap: http:www.ebay.com/lst/PDP_US_main_index.xml"])
+
+
+
+
 
 
   describe "smoke test - check we can read all the robots.txt examples" $
@@ -139,3 +144,8 @@ spec = do
   --     canAccess "SpecialBot"  robot "/only_special" `shouldBe` True
   --   it "allows access to specialbot special area" $ do
   --     canAccess "OtherSpecial"  robot "/only_special" `shouldBe` True
+
+  describe "regressions" $ do
+    it "chooses the most specific user agent from helloworldweb" $ do
+      (Right hellobot) <- parseOnly robotP <$> liftIO (BS.readFile "./test/examples/helloworldweb.com")
+      canAccess "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" hellobot "/" `shouldBe` False

@@ -80,15 +80,17 @@ canAccess _ _ "/robots.txt" = True -- special-cased
 canAccess agent (robot,_) path = case stanzas of
   [] -> True
   ((_,directives):_) -> matchingDirective directives
-  where stanzas = catMaybes [find ((Literal agent `elem`) . fst) robot,
+  where stanzas = catMaybes [find ((any (`isLiteralSubstring` agent))  . fst) robot,
                              find ((Wildcard `elem`) . fst) robot]
+
+
+        isLiteralSubstring (Literal a) us = a `BS.isInfixOf` us
+        isLiteralSubstring _ _ = False
         matchingDirective [] = True
         matchingDirective (x:xs) = case x of
-          Allow robot_path -> if robot_path `BS.isPrefixOf` path
-                              then True
-                              else matchingDirective xs
+          Allow robot_path ->
+            robot_path `BS.isPrefixOf` path || matchingDirective xs
           Disallow robot_path ->
-            if robot_path `BS.isPrefixOf` path
-            then False
-            else matchingDirective xs
+            (not $ robot_path `BS.isPrefixOf` path) && matchingDirective xs
+
           _ -> matchingDirective xs
