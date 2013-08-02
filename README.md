@@ -1,6 +1,8 @@
 robots-txt
 ==========
 
+![Alt logo](logo.png)
+
 This is a simple package for parsing robots.txt files.
 Based on http://www.robotstxt.org/orig.html
 
