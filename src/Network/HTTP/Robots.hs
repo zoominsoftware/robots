@@ -1,13 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Network.HTTP.Robots where
 
+import           Control.Applicative
+import           Data.Attoparsec.Char8 hiding (skipSpace)
+import           Data.ByteString.Char8 (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import           Data.ByteString.Char8(ByteString)
-import Data.Attoparsec.Char8 hiding (skipSpace)
-import Control.Applicative
-import Data.List(find)
-import Data.Maybe(catMaybes)
-import Data.Either(partitionEithers)
+import           Data.Either           (partitionEithers)
+import           Data.List             (find)
+import           Data.Maybe            (catMaybes)
+import           Debug.Trace
 
 type Robot = ([([UserAgent], [Directive])], [Unparsable])
 
@@ -22,30 +23,50 @@ data Directive = Allow Path
                | CrawlDelay Int
   deriving (Show,Eq)
 
+-- ... yeah.
+strip = BS.reverse . BS.dropWhile (==' ') . BS.reverse . BS.dropWhile (==' ')
+
+doDebug x = trace (show x) x
+
 -- | parseRobots is the main entry point for parsing a robots.txt file.
 parseRobots :: ByteString -> Either String Robot
-parseRobots = parseOnly robotP
+parseRobots input = case parsed of
+  -- special case no parsable lines and rubbish
+  Right ([], out@(_:_)) ->
+    Left ("no parsable lines: " ++ (show out))
+  _ -> parsed
+
+  where parsed = parseOnly robotP
               . BS.unlines
-              . filter ( (\x -> BS.null x || BS.head x /= '#' ) . BS.dropWhile (==' '))
+              . doDebug
+-- Filthy hack to account for the fact we don't grab sitemaps
+-- properly. people seem to just whack them anywhere, which makes it
+  -- hard to write a nice parser for them.
+              . filter (not . ( "Sitemap:" `BS.isPrefixOf`))
+              . filter (\x -> BS.head x /= '#' )
+              . filter (not . BS.null)
+              . map strip
               . BS.lines
+              -- worst way of handling window newlines ever
+              . BS.filter (/= '\r')
+              $ input
 
 robotP :: Parser Robot
 robotP = do
   (dirs, unparsable) <- partitionEithers <$> many  (eitherP agentDirectiveP unparsableP) <?> "robot"
   return (dirs, filter (/= "") unparsable)
 
-unparsableP = takeTill (=='\n') <* char '\n'
+unparsableP = takeTill (=='\n') <* endOfLine -- char '\n'
 
 agentDirectiveP = (,) <$> many1 agentP <*> many1 directiveP <?> "agentDirective"
-
 
 
 skipSpace :: Parser ()
 skipSpace = skipWhile (\x -> x==' ' || x == '\t')
 
 directiveP :: Parser Directive
-directiveP = choice [ Allow <$>      (string "Allow:"       >> skipSpace >> tokenP)
-                    , (string "Disallow:"    >> skipSpace >>
+directiveP = choice [ Allow <$>      (stringCI "Allow:"       >> skipSpace >> tokenP)
+                    , (stringCI "Disallow:"    >> skipSpace >>
                        (choice [Disallow <$> tokenP,
                                 -- this requires some explanation.
                                 -- The RFC suggests that an empty
@@ -56,12 +77,12 @@ directiveP = choice [ Allow <$>      (string "Allow:"       >> skipSpace >> toke
                                 -- rather than carry the bogus
                                 -- distinction around.
                                 endOfLine >> return (Allow "/") ] ))
-                    , CrawlDelay <$> (string "Crawl-delay:" >>  skipSpace >>decimal)
+                    , CrawlDelay <$> (stringCI "Crawl-delay:" >>  skipSpace >>decimal)
                     ] <* commentsP <?> "directive"
 
 agentP :: Parser UserAgent
 agentP = do
-  string "User-agent:"
+  stringCI "user-agent:"
   skipSpace
   ((string "*" >> return Wildcard) <|>
    (Literal  <$> tokenP)) <* skipSpace <* endOfLine <?> "agent"

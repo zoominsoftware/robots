@@ -1,17 +1,17 @@
-{-# LANGUAGE CPP #-}
+{-# LANGUAGE CPP               #-}
 {-# LANGUAGE OverloadedStrings #-}
 module RobotSpec where
-import Network.HTTP.Robots
-import Test.Hspec
-import System.Directory
+import           Network.HTTP.Robots
+import           System.Directory
+import           Test.Hspec
 
-import Control.Monad(forM_,filterM)
-import Control.Applicative
-import Data.Either
-import Data.Attoparsec.Char8
-import System.IO.Unsafe(unsafePerformIO)
-import qualified Data.ByteString.Char8 as BS
-import Control.Monad.IO.Class
+import           Control.Applicative
+import           Control.Monad          (filterM, forM_)
+import           Control.Monad.IO.Class
+import           Data.Attoparsec.Char8
+import qualified Data.ByteString.Char8  as BS
+import           Data.Either
+import           System.IO.Unsafe       (unsafePerformIO)
 
 dirname :: String
 dirname = reverse $ dropWhile (/= '/') $ reverse __FILE__
@@ -61,12 +61,13 @@ spec = do
 
 
 
+
+
   describe "smoke test - check we can read all the robots.txt examples" $
 
     forM_ texts $ \(name,text) ->
       it ("should parse " ++ name) $ do
-        let res = rights [parseRobots text]
-        length res  `shouldBe` 1
+        parseRobots text `shouldSatisfy` (\x -> 1 == length (rights [x]))
 
   -- the behaviour here doesn't seem to be rigorously specified: it
   -- seems obvious that if * can access a resource but FooBot is
@@ -147,5 +148,18 @@ spec = do
 
   describe "regressions" $ do
     it "chooses the most specific user agent from helloworldweb" $ do
-      (Right hellobot) <- parseOnly robotP <$> liftIO (BS.readFile "./test/examples/helloworldweb.com")
+      (Right hellobot) <- parseOnly robotP <$> liftIO (BS.readFile "./test/examples/helloworldweb2.com")
       canAccess "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" hellobot "/" `shouldBe` False
+      canAccess "googlebot" hellobot "/" `shouldBe` True
+
+
+
+  describe "incorrect robots files" $ do
+    it "treats HTML as garbage" $ do
+      parseRobots "<html><head>a thing</head><body>yo, i'm not a robots file</body></html>\n"
+        `shouldSatisfy` isLeft
+
+
+    it "can handle no-newline files" $ do
+      parseRobots "<html><head>a thing</head><body>yo, i'm not a robots file</body></html>"
+        `shouldSatisfy` isLeft
