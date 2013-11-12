@@ -8,7 +8,6 @@ import qualified Data.ByteString.Char8 as BS
 import           Data.Either           (partitionEithers)
 import           Data.List             (find)
 import           Data.Maybe            (catMaybes)
-import           Debug.Trace
 
 type Robot = ([([UserAgent], [Directive])], [Unparsable])
 
@@ -26,8 +25,6 @@ data Directive = Allow Path
 -- ... yeah.
 strip = BS.reverse . BS.dropWhile (==' ') . BS.reverse . BS.dropWhile (==' ')
 
-doDebug x = trace (show x) x
-
 -- | parseRobots is the main entry point for parsing a robots.txt file.
 parseRobots :: ByteString -> Either String Robot
 parseRobots input = case parsed of
@@ -38,9 +35,8 @@ parseRobots input = case parsed of
 
   where parsed = parseOnly robotP
               . BS.unlines
-              . doDebug
--- Filthy hack to account for the fact we don't grab sitemaps
--- properly. people seem to just whack them anywhere, which makes it
+  -- Filthy hack to account for the fact we don't grab sitemaps
+  -- properly. people seem to just whack them anywhere, which makes it
   -- hard to write a nice parser for them.
               . filter (not . ( "Sitemap:" `BS.isPrefixOf`))
               . filter (\x -> BS.head x /= '#' )
