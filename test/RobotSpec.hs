@@ -13,6 +13,10 @@ import qualified Data.ByteString.Char8  as BS
 import           Data.Either
 import           System.IO.Unsafe       (unsafePerformIO)
 
+-- apparently not a utility function.
+myIsLeft (Left _) = True
+myIsLeft _        = False
+
 dirname :: String
 dirname = reverse $ dropWhile (/= '/') $ reverse __FILE__
 -- forgive me father, i know not what i do.
@@ -157,9 +161,9 @@ spec = do
   describe "incorrect robots files" $ do
     it "treats HTML as garbage" $ do
       parseRobots "<html><head>a thing</head><body>yo, i'm not a robots file</body></html>\n"
-        `shouldSatisfy` isLeft
+        `shouldSatisfy` myIsLeft
 
 
     it "can handle no-newline files" $ do
       parseRobots "<html><head>a thing</head><body>yo, i'm not a robots file</body></html>"
-        `shouldSatisfy` isLeft
+        `shouldSatisfy` myIsLeft
