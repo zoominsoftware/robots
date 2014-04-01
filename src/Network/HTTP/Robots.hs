@@ -39,6 +39,7 @@ parseRobots input = case parsed of
   -- properly. people seem to just whack them anywhere, which makes it
   -- hard to write a nice parser for them.
               . filter (not . ( "Sitemap:" `BS.isPrefixOf`))
+              . filter (not . ( "Host:"    `BS.isPrefixOf`))
               . filter (\x -> BS.head x /= '#' )
               . filter (not . BS.null)
               . map strip
@@ -81,15 +82,20 @@ agentP = do
   stringCI "user-agent:"
   skipSpace
   ((string "*" >> return Wildcard) <|>
-   (Literal  <$> tokenP)) <* skipSpace <* endOfLine <?> "agent"
+   (Literal  <$> tokenWithSpacesP)) <* skipSpace <* endOfLine <?> "agent"
 
 
 commentsP :: Parser ()
 commentsP = skipSpace >>
-            ((string "#" >> takeTill (=='\n') >> skipSpace >> endOfLine) <|> return ())
+            (   (string "#" >> takeTill (=='\n') >> skipSpace >> endOfLine)
+            <|> (endOfLine >> return ())
+            <|> return ())
 
 tokenP :: Parser ByteString
 tokenP = skipSpace >> takeWhile1 (not . isSpace) <* skipSpace
+tokenWithSpacesP :: Parser ByteString
+tokenWithSpacesP = skipSpace >> takeWhile1 (not . (\c -> c == '#' || c == '\n')) 
+							 <* takeTill (=='\n')
 
 -- I lack the art to make this prettier.
 canAccess :: ByteString -> Robot -> Path -> Bool

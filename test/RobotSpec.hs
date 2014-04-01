@@ -14,6 +14,7 @@ import           Data.Either
 import           System.IO.Unsafe       (unsafePerformIO)
 
 -- apparently not a utility function.
+myIsLeft :: Either a b -> Bool
 myIsLeft (Left _) = True
 myIsLeft _        = False
 
@@ -68,10 +69,13 @@ spec = do
 
 
   describe "smoke test - check we can read all the robots.txt examples" $
-
+	-- we should also verify if there were unparsed items
     forM_ texts $ \(name,text) ->
-      it ("should parse " ++ name) $ do
-        parseRobots text `shouldSatisfy` (\x -> 1 == length (rights [x]))
+      it ("should parse " ++ name) $
+        parseRobots text `shouldSatisfy`
+          (\x -> 1 == length (rights [x])
+			  -- head is safe here if first condition is met
+              && 0 == length (snd . head . rights $ [x]))
 
   -- the behaviour here doesn't seem to be rigorously specified: it
   -- seems obvious that if * can access a resource but FooBot is
