@@ -1,0 +1,4 @@
+#!/bin/sh
+cd examples
+find . -type f -exec sh -c 'wget $(basename {})/robots.txt -O $(basename {})' \;
+
