@@ -53,6 +53,7 @@ data Directive = Allow Path
                -- http://searchengineland.com/a-deeper-look-at-robotstxt-17573
                | NoIndex Path
                | SiteMap Path
+               -- I don't really like storing these, but for now
   deriving (Show,Eq)
 
 -- For use in the attoparsec monad, allows to reparse a sub expression
@@ -158,14 +159,16 @@ robotP = do
 
 unparsableP = takeTill AT.isEndOfLine <* endOfLine -- char '\n'
 
-agentDirectiveP = (,) <$> many1 agentP <*> many1 directiveP <?> "agentDirective"
+agentDirectiveP =  many' commentsP'
+                >> (,) <$> many1 agentP <*> many1 directiveP <?> "agentDirective"
 
 
 skipSpace :: Parser ()
 skipSpace = skipWhile (\x -> x==' ' || x == '\t')
 
 directiveP :: Parser Directive
-directiveP = choice [ stringCI "Disallow:" >> skipSpace >>
+directiveP = many' commentsP' >>
+             choice [ stringCI "Disallow:" >> skipSpace >>
                         ((Disallow <$> tokenP) <|>
                       -- This requires some explanation.
                       -- The RFC suggests that an empty Disallow line means
@@ -192,7 +195,7 @@ directiveP = choice [ stringCI "Disallow:" >> skipSpace >>
                     ] <* commentsP <?> "directive"
 
 agentP :: Parser UserAgent
-agentP = do
+agentP = many' commentsP' >> do
   stringCI "user-agent:"
   skipSpace
   ((string "*" >> return Wildcard) <|>
@@ -201,9 +204,14 @@ agentP = do
 
 commentsP :: Parser ()
 commentsP = skipSpace >>
-            (   (string "#" >> takeTill AT.isEndOfLine >> skipSpace >> endOfLine)
+            (   (string "#" >> takeTill AT.isEndOfLine >> endOfLine)
             <|> (endOfLine >> return ())
             <|> return ())
+
+commentsP' :: Parser ()
+commentsP' = (char '#' >> takeTill AT.isEndOfLine >> endOfLine)
+            <|> endOfLine
+
 
 tokenP :: Parser ByteString
 tokenP = skipSpace >> takeWhile1 (not . isSpace) <* skipSpace
