@@ -12,8 +12,6 @@ import           Data.List             (find)
 import           Data.Maybe            (catMaybes)
 import           Data.Time.Clock
 import           Data.Time.LocalTime()
-import           Data.Time.Format
-import           System.Locale
 import           Data.Ratio
 
 type Robot = ([([UserAgent], [Directive])], [Unparsable])
@@ -24,22 +22,14 @@ data UserAgent = Wildcard | Literal ByteString
   deriving (Show,Eq)
 type Path = ByteString
 
-
 -- http://www.conman.org/people/spc/robots2.html
 -- This was never actually accepted as a standard,
 -- but some sites do use it.
---
 type TimeInterval = (DiffTime, DiffTime)
-
-{-data CrawlDelayInfo = CrawlDelayInfo-}
-  {-{ crawlDelay    :: Rational-}
-  {-, timeInterval  :: TimeInterval-}
-  {-}-}
-  {-deriving (Eq,Ord,Show)-}
 
 -- Crawldelay may have a decimal point
 -- http://help.yandex.com/webmaster/controlling-robot/robots-txt.xml
--- Added directives NoArchive, NoSnippet, NoTranslate:
+-- Added directives NoArchive, NoSnippet, NoTranslate, SiteMap.
 -- http://bloganddiscussion.com/anythingcomputer/1/robots-txt-noarchive-nocache-nosnippet/
 data Directive = Allow Path
                | Disallow Path
@@ -53,7 +43,6 @@ data Directive = Allow Path
                -- http://searchengineland.com/a-deeper-look-at-robotstxt-17573
                | NoIndex Path
                | SiteMap Path
-               -- I don't really like storing these, but for now
   deriving (Show,Eq)
 
 -- For use in the attoparsec monad, allows to reparse a sub expression
@@ -61,17 +50,26 @@ subParser :: Parser a -> ByteString -> Parser a
 subParser p = either (const mzero) return . parseOnly p
 
 
+-- Seems the rational parser is unsecure in the presence of an exponent
+-- but since there is no alternative to parse a rational, we just to refuse
+-- to parse numbers with 'e' / exponent
+-- https://hackage.haskell.org/package/attoparsec-0.12.1.0/docs/Data-Attoparsec-ByteString-Char8.html#v:rational
 safeParseRational :: Parser Rational
 safeParseRational = do
-  (txt,_) <- match number
-  -- stuff to handle the exponent - refusing to parse if one is present
-  subParser rational txt
+  (bs,_) <- match scientific
+  if BS.elem 'e' bs || BS.elem 'E' bs
+    then mzero
+    else subParser rational bs
 
--- Yeah, robots.txt should be ASCII, but some sites (namely nbcnews.com)
--- include the UTF-8 marker at start
-parserBOM :: Parser ()
-parserBOM = (char '\239' >> char '\187' >> char '\191' >> return ())
-          <|> return ()
+-- Yeah, robots.txt should be ASCII, but some sites
+-- include the UTF-8 marker at start.
+-- We just drop it, but handle the file as ASCII.
+dropUTF8BOM :: ByteString -> ByteString
+dropUTF8BOM bs = if BS.take 3 bs == ( '\239' `BS.cons`
+                                      '\187' `BS.cons`
+                                      '\191' `BS.cons` BS.empty)
+                   then BS.drop 3 bs
+                   else bs
 
 parseHourMinute :: Parser (Integer,Integer)
 parseHourMinute = parseWithColon <|> parseWithoutColon
@@ -111,7 +109,6 @@ parseRequestRate = do
                         <|>              return (    1 :: Integer)
                          )
   tint <- skipSpace >> ( parseTimeInterval <|> return allDay)
-  {-void $ takeTill AT.isEndOfLine-}
   return $ CrawlDelay ((ptim * units) % docs) tint
 
 parseVisitTime :: Parser Directive
@@ -147,28 +144,26 @@ parseRobots input = case parsed of
               . filter (not . BS.null)
               . map strip
               . BS.lines
-              -- worst way of handling window newlines ever
+              -- worst way of handling windows newlines ever
               . BS.filter (/= '\r')
+              . dropUTF8BOM
               $ input
 
 robotP :: Parser Robot
 robotP = do
-  void parserBOM
   (dirs, unparsable) <- partitionEithers <$> many  (eitherP agentDirectiveP unparsableP) <?> "robot"
   return (dirs, filter (/= "") unparsable)
 
 unparsableP = takeTill AT.isEndOfLine <* endOfLine -- char '\n'
 
-agentDirectiveP =  many' commentsP'
-                >> (,) <$> many1 agentP <*> many1 directiveP <?> "agentDirective"
+agentDirectiveP = (,) <$> many1 agentP <*> many1 directiveP <?> "agentDirective"
 
 
 skipSpace :: Parser ()
 skipSpace = skipWhile (\x -> x==' ' || x == '\t')
 
 directiveP :: Parser Directive
-directiveP = many' commentsP' >>
-             choice [ stringCI "Disallow:" >> skipSpace >>
+directiveP = choice [ stringCI "Disallow:" >> skipSpace >>
                         ((Disallow <$> tokenP) <|>
                       -- This requires some explanation.
                       -- The RFC suggests that an empty Disallow line means
@@ -195,7 +190,7 @@ directiveP = many' commentsP' >>
                     ] <* commentsP <?> "directive"
 
 agentP :: Parser UserAgent
-agentP = many' commentsP' >> do
+agentP = do
   stringCI "user-agent:"
   skipSpace
   ((string "*" >> return Wildcard) <|>
@@ -207,10 +202,6 @@ commentsP = skipSpace >>
             (   (string "#" >> takeTill AT.isEndOfLine >> endOfLine)
             <|> (endOfLine >> return ())
             <|> return ())
-
-commentsP' :: Parser ()
-commentsP' = (char '#' >> takeTill AT.isEndOfLine >> endOfLine)
-            <|> endOfLine
 
 
 tokenP :: Parser ByteString

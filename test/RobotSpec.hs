@@ -8,7 +8,7 @@ import           Test.Hspec
 import           Control.Applicative
 import           Control.Monad          (filterM, forM_)
 import           Control.Monad.IO.Class
-import           Data.Attoparsec.Char8
+import           Data.Attoparsec.ByteString.Char8
 import qualified Data.ByteString.Char8  as BS
 import           Data.Either
 import           System.IO.Unsafe       (unsafePerformIO)
