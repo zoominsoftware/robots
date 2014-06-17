@@ -123,6 +123,7 @@ parseCrawlDelay = do
   return $ CrawlDelay delay allDay
 
 -- ... yeah.
+strip :: ByteString -> ByteString
 strip = BS.reverse . BS.dropWhile (==' ') . BS.reverse . BS.dropWhile (==' ')
 
 -- | parseRobots is the main entry point for parsing a robots.txt file.
@@ -130,7 +131,7 @@ parseRobots :: ByteString -> Either String Robot
 parseRobots input = case parsed of
   -- special case no parsable lines and rubbish
   Right ([], out@(_:_)) ->
-    Left ("no parsable lines: " ++ (show out))
+    Left ("no parsable lines: " ++ show out)
   _ -> parsed
 
   where parsed = parseOnly robotP
@@ -154,8 +155,10 @@ robotP = do
   (dirs, unparsable) <- partitionEithers <$> many  (eitherP agentDirectiveP unparsableP) <?> "robot"
   return (dirs, filter (/= "") unparsable)
 
+unparsableP :: Parser ByteString
 unparsableP = takeTill AT.isEndOfLine <* endOfLine -- char '\n'
 
+agentDirectiveP :: Parser ([UserAgent],[Directive])
 agentDirectiveP = (,) <$> many1 agentP <*> many1 directiveP <?> "agentDirective"
 
 
@@ -182,16 +185,16 @@ directiveP = choice [ stringCI "Disallow:" >> skipSpace >>
                     , parseCrawlDelay
                     , parseRequestRate
                     , parseVisitTime
-                    , NoArchive   <$> (stringCI "Noarchive:" >> skipSpace >> tokenP)
-                    , NoSnippet   <$> (stringCI "Nosnippet:" >> skipSpace >> tokenP)
-                    , NoTranslate <$> (stringCI "Notranslate:">>skipSpace >> tokenP)
-                    , NoIndex     <$> (stringCI "Noindex:">>skipSpace >> tokenP)
-                    , SiteMap     <$> (stringCI "SITEMAP:">>skipSpace >> tokenP)
+                    , NoArchive   <$> (stringCI "Noarchive:"  >> skipSpace >> tokenP)
+                    , NoSnippet   <$> (stringCI "Nosnippet:"  >> skipSpace >> tokenP)
+                    , NoTranslate <$> (stringCI "Notranslate:">> skipSpace >> tokenP)
+                    , NoIndex     <$> (stringCI "Noindex:"    >> skipSpace >> tokenP)
+                    , SiteMap     <$> (stringCI "SITEMAP:"    >> skipSpace >> tokenP)
                     ] <* commentsP <?> "directive"
 
 agentP :: Parser UserAgent
 agentP = do
-  stringCI "user-agent:"
+  void $ stringCI "user-agent:"
   skipSpace
   ((string "*" >> return Wildcard) <|>
    (Literal  <$> tokenWithSpacesP)) <* skipSpace <* endOfLine <?> "agent"
@@ -200,7 +203,7 @@ agentP = do
 commentsP :: Parser ()
 commentsP = skipSpace >>
             (   (string "#" >> takeTill AT.isEndOfLine >> endOfLine)
-            <|> (endOfLine >> return ())
+            <|> endOfLine
             <|> return ())
 
 
@@ -216,7 +219,7 @@ canAccess _ _ "/robots.txt" = True -- special-cased
 canAccess agent (robot,_) path = case stanzas of
   [] -> True
   ((_,directives):_) -> matchingDirective directives
-  where stanzas = catMaybes [find ((any (`isLiteralSubstring` agent))  . fst) robot,
+  where stanzas = catMaybes [find (any (`isLiteralSubstring` agent)  . fst) robot,
                              find ((Wildcard `elem`) . fst) robot]
 
 
@@ -227,6 +230,6 @@ canAccess agent (robot,_) path = case stanzas of
           Allow robot_path ->
             robot_path `BS.isPrefixOf` path || matchingDirective xs
           Disallow robot_path ->
-            (not $ robot_path `BS.isPrefixOf` path) && matchingDirective xs
+            not (robot_path `BS.isPrefixOf` path) && matchingDirective xs
 
           _ -> matchingDirective xs
