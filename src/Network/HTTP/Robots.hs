@@ -10,6 +10,7 @@ import qualified Data.Attoparsec.Text as AT (isEndOfLine)
 import           Data.Either           (partitionEithers)
 import           Data.List             (find)
 import           Data.Maybe            (catMaybes)
+import           Data.Char             (toUpper)
 import           Data.Time.Clock
 import           Data.Time.LocalTime()
 import           Data.Ratio
@@ -42,7 +43,6 @@ data Directive = Allow Path
                -- not used by Google, Yahoo or Live Search/Bing
                -- http://searchengineland.com/a-deeper-look-at-robotstxt-17573
                | NoIndex Path
-               | SiteMap Path
   deriving (Show,Eq)
 
 -- For use in the attoparsec monad, allows to reparse a sub expression
@@ -139,8 +139,8 @@ parseRobots input = case parsed of
   -- Filthy hack to account for the fact we don't grab sitemaps
   -- properly. people seem to just whack them anywhere, which makes it
   -- hard to write a nice parser for them.
-              . filter (not . ( "Sitemap:" `BS.isPrefixOf`))
-              . filter (not . ( "Host:"    `BS.isPrefixOf`))
+              . filter (not . BS.isPrefixOf "SITEMAP:" . BS.map toUpper)
+              . filter (not . BS.isPrefixOf "HOST:"    . BS.map toUpper)
               . filter (\x -> BS.head x /= '#' )
               . filter (not . BS.null)
               . map strip
@@ -152,7 +152,7 @@ parseRobots input = case parsed of
 
 robotP :: Parser Robot
 robotP = do
-  (dirs, unparsable) <- partitionEithers <$> many  (eitherP agentDirectiveP unparsableP) <?> "robot"
+  (dirs, unparsable) <- partitionEithers <$> many (eitherP agentDirectiveP unparsableP) <?> "robot"
   return (dirs, filter (/= "") unparsable)
 
 unparsableP :: Parser ByteString
@@ -189,7 +189,6 @@ directiveP = choice [ stringCI "Disallow:" >> skipSpace >>
                     , NoSnippet   <$> (stringCI "Nosnippet:"  >> skipSpace >> tokenP)
                     , NoTranslate <$> (stringCI "Notranslate:">> skipSpace >> tokenP)
                     , NoIndex     <$> (stringCI "Noindex:"    >> skipSpace >> tokenP)
-                    , SiteMap     <$> (stringCI "SITEMAP:"    >> skipSpace >> tokenP)
                     ] <* commentsP <?> "directive"
 
 agentP :: Parser UserAgent
@@ -214,6 +213,7 @@ tokenWithSpacesP = skipSpace >> takeWhile1 (not . (\c -> c == '#' || AT.isEndOfL
 							 <* takeTill AT.isEndOfLine
 
 -- I lack the art to make this prettier.
+-- Currently does not take into account the CrawlDelay / Request Rate directives
 canAccess :: ByteString -> Robot -> Path -> Bool
 canAccess _ _ "/robots.txt" = True -- special-cased
 canAccess agent (robot,_) path = case stanzas of
