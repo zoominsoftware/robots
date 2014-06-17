@@ -7,3 +7,4 @@ Disallow: /svc/account
 Disallow: /dashboard/notes
 Disallow: /customize
 Disallow: /impixu
+Disallow: /liked

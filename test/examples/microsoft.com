@@ -1,7 +1,11 @@
-# Robots.txt file for http://www.microsoft.com
+﻿# Robots.txt file for http://www.microsoft.com
 #
 
 User-agent: *
+
+Disallow: /feeds/TechNet/fr-fr/screenshot/screenshot%20surface.jpg
+Disallow: /imaginecup/*
+Disallow: /*/download/confirmation.aspx?
 Disallow: /*navV3Index=0$
 Disallow: /*navV3Index=1$
 Disallow: /*navV3Index=2$
@@ -14,17 +18,6 @@ Disallow: /*mnui=2$
 Disallow: /*mnui=3$
 Disallow: /*mnui=4$
 Disallow: /*mnui=5$
-Disallow: /*bldi=1-0$
-Disallow: /*bldi=2-0$
-Disallow: /*bldi=3-0$
-Disallow: /*bldi=4-0$
-Disallow: /*bldi=-1$
-Disallow: /*bldi=0$
-Disallow: /*bldi=1$
-Disallow: /*bldi=2$
-Disallow: /*bldi=3$
-Disallow: /*bldi=4$
-Disallow: /*bldi=5$
 Disallow: /*acci=0$
 Disallow: /*acci=1$
 Disallow: /*acci=2$
@@ -76,12 +69,9 @@ Disallow: /*pvtsi=5$
 Disallow: /*pvtsi=6$
 Disallow: /*HpOptOut=true$
 Disallow: /*TOCLinksForCrawlers*
-Disallow: /*mac/help.mspx
 Disallow: /*mac/help.mspx?
 Disallow: /*mactopia/help.mspx?
 Disallow: /blacklisted*
-Disallow: /businesssolutions/community/newsgroups/
-Disallow: /Businesssolutions/Community/Newsgroups/
 Disallow: /canada/Library/mnp/2/aspx/
 Disallow: /communities/bin.aspx?
 Disallow: /communities/blogs/PortalResults.mspx?
@@ -161,6 +151,9 @@ Disallow: /windows/compatibility/windows-7/*/Browse.aspx?
 Disallow: /windows/compatibility/windows-7/*/details.aspx?
 Disallow: /windows/compatibility/windows-7/*/Details.aspx?
 Disallow: /windows/404.aspx?*
+Disallow: /windows/campaign/meet-start.aspx
+Disallow: /windows/campaign/meet-apps.aspx
+Disallow: /windows/campaign/features-built-in-apps.aspx
 Disallow: /ru-ru/events/platforma/materials/default.aspx?speaker*
 Disallow: /de-de/corporate/rechtliche-hinweise/impressum_de.aspx
 
@@ -224,36 +217,35 @@ Sitemap: http://www.microsoft.com/zh-hk/download/sitemap.xml
 Sitemap: http://www.microsoft.com/zh-tw/download/sitemap.xml
 Sitemap: http://www.microsoft.com/ru/ru/ms-start/sitemap.xml
 Sitemap: http://www.microsoft.com/ru-RU/windows/enterprise/sitemap.xml
-Sitemap: http://www.microsoft.com/learning/ru/ru/sitemap.xml
 Sitemap: http://www.microsoft.com/ru-ru/security/sitemap.xml
-Sitemap: http://www.microsoft.com/rus/antipiracy/sitemap.xml
-Sitemap: http://www.microsoft.com/bi/sitemap.xml
 Sitemap: http://www.microsoft.com/business/smb/sitemapindex.xml
 Sitemap: http://www.microsoft.com/business/success/sitemap.xml
 Sitemap: http://www.microsoft.com/canada/sitemap.xml
 Sitemap: http://www.microsoft.com/ebs/sitemap.xml
 Sitemap: http://www.microsoft.com/en/ca/sitemap.xml
-Sitemap: http://www.microsoft.com/en-hk/dynamics/sitemap.xml 
+Sitemap: http://www.microsoft.com/en-gb/dynamics/sitemap.xml
 Sitemap: http://www.microsoft.com/en-us/dynamics/sitemap.xml
 Sitemap: http://www.microsoft.com/en-us/kinectforwindows/sitemap.xml
 Sitemap: http://www.microsoft.com/en-us/sqlazure/sitemap.xml
-Sitemap: http://www.microsoft.com/en-us/cloud/sitemap.xml
 Sitemap: http://www.microsoft.com/en-us/server-cloud/sitemap.xml
+Sitemap: http://www.microsoft.com/en-us/windows/enterprise/sitemap.xml
 Sitemap: http://www.microsoft.com/france/sitemap_index.xml
 Sitemap: http://www.microsoft.com/fr/ca/sitemap.xml
-Sitemap: http://www.microsoft.com/germany/kleinunternehmen/gsitemap.aspx
 Sitemap: http://www.microsoft.com/germany/newsroom/sitemap.xml
 Sitemap: http://www.microsoft.com/infrastructure/sitemap.xml
 Sitemap: http://www.microsoft.com/investor/sitemap.xml
 Sitemap: http://www.microsoft.com/learning/en/us/sitemap.xml
-Sitemap: http://www.microsoft.com/msft/reports/sitemap.xml
 Sitemap: http://www.microsoft.com/online/sitemap.xml
+Sitemap: http://www.microsoft.com/ru-ru/office/yammer/sitemap.xml
+Sitemap: http://www.microsoft.com/ru-ru/dynamics/sitemap.xml 
+Sitemap: http://www.microsoft.com/ru-ru/licensing/sitemap.xml 
+Sitemap: http://www.microsoft.com/ru-ru/windows/business/sitemap.xml 
+Sitemap: http://www.microsoft.com/rus/casestudies/sitemap.xml 
 Sitemap: http://www.microsoft.com/sbs/sitemap.xml
 Sitemap: http://www.microsoft.com/security/sitemap.xml
-Sitemap: http://www.microsoft.com/security_essentials/sitemap.xml
 Sitemap: http://www.microsoft.com/business/smb/es-es/sitemap.xml
-Sitemap: http://www.microsoft.com/unlimitedpotential/sitemap.xml
-Sitemap: http://www.microsoft.com/unlimitedpotential/video-sitemap.xml
-Sitemap: http://www.microsoft.com/windows/sitemap.xml
+Sitemap: http://www.microsoft.com/windows/sitemap-001.xml
 Sitemap: http://www.microsoft.com/windowsazure/sitemap.xml
 Sitemap: http://www.microsoft.com/windowsembedded/en-us/sitemap.xml
+Sitemap: http://www.microsoft.com/education/sitemap/edusitemapindex.xml
+Sitemap: http://www.microsoft.com/government/sitemap/govsitemapindex.xml

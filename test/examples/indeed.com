@@ -1,13 +1,21 @@
 User-agent: *
 Allow: /
+Disallow: /*&alid=
+Disallow: /*&calert=
+Disallow: /*&from=
+Disallow: /*&iafilter=
 Disallow: /ads/
 Disallow: /advanced_search?
 Disallow: /alert
 Disallow: /cmp/addlink
 Disallow: /cmp/addvideo
+Disallow: /cmp/*/analytics
 Disallow: /cmp/*/jobs/
 Disallow: /cmp/*/people
+Disallow: /cmp/*/reviews?*
+Disallow: /cmp/*/salaries
 Disallow: /conversion/
+Disallow: /cookiemigrator/
 Disallow: /*%E3%81%82%E3%81%8D%E3%82%8B%E9%87%8E%E5%B8%82
 Disallow: /*%E4%B8%89%E9%B7%B9%E5%B8%82
 Disallow: /*%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA
@@ -65,6 +73,8 @@ Disallow: /empregos/title
 Disallow: /forum/profile
 Disallow: /g/
 Disallow: /ja/clk?
+Disallow: /ja/imp.gif
+Disallow: /imgping
 Disallow: /job/
 Disallow: /Job/
 Disallow: /jobb/
@@ -192,3 +202,6 @@ Disallow: /trendgraph/*
 
 User-agent: msnbot-media
 Disallow: /trendgraph/*
+
+User-agent: 008
+Disallow: /

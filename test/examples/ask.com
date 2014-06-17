@@ -1,7 +1,4 @@
 User-agent: *
-Allow:/answers
-Allow:/articles
-Allow:/explore
 Disallow: /web
 Disallow: /webans
 Disallow: /ans
@@ -20,6 +17,20 @@ Disallow: /dictionary
 Disallow: /thesaurus
 Disallow: /apps
 Disallow: /wiki
+Disallow: /youtube
+Disallow: /touch
+Disallow: /explore
+Disallow: /explore/
+Disallow: /wiki/
+Disallow: /web-explore
+Disallow: /web-explore/
+Disallow: /answers
+Disallow: /answers/
+Disallow: /web-answers
+Disallow: /web-answers/
+Disallow: /web-question
+Disallow: /web-question/
+
 User-agent: Mediapartners-Google
 Disallow:
 User-agent: Teoma 
@@ -29,4 +40,4 @@ Disallow:
 User-agent: AdsBot-Google
 Disallow:
 
-Sitemap: http://www.ask.com/sitemaps/index/sitemap_index.xml
+Sitemap: http://www.ask.com/question/sitemap_index.xml

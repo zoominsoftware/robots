@@ -8,7 +8,6 @@ Allow: /lists/*
 Allow: /channel/*
 
 User-agent: *
-Disallow: /login
 Disallow: /sign_up.php
 Disallow: /signup.php
 Disallow: /search.php
@@ -37,7 +36,6 @@ Disallow: /home
 Disallow: /fix_about.php
 Disallow: /query
 Disallow: /cgi-bin/
-Disallow: /explore
 Disallow: /browse
 Disallow: /picks/
 Disallow: /to/
@@ -48,7 +46,6 @@ Disallow: /hostedbadge.php
 Disallow: /syndicate.php
 Disallow: /searchers.php
 Disallow: /settings
-Disallow: /submit
 Disallow: /channel/*/followers/
 Disallow: /content/*/likes/
 

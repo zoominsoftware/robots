@@ -2,11 +2,13 @@ User-agent: Mediapartners-Google*
 Disallow:
 
 User-agent: *
+Disallow: /go
+Disallow: /click
 Disallow: /stat/
 Disallow: /cgi-bin/
-Disallow: /search
-Disallow: /jsearch
-Disallow: /msearch
+Disallow: /search/
+Disallow: /jsearch/
+Disallow: /msearch/
 Disallow: /interface/pda/
 Disallow: /ribbon.php
 Disallow: /journal_proc.php
@@ -30,6 +32,9 @@ Disallow: /community/*/rss
 Disallow: /community/*/rss/
 Disallow: /community/*/foaf
 Disallow: /community/*/foaf/
+Disallow: /jsearch/
+Disallow: /msearch/
+Disallow: /search/
 Host: www.liveinternet.ru
 Sitemap: http://www.liveinternet.ru/sitemap.php?sitemap_type=1
 Sitemap: http://www.liveinternet.ru/sitemap.php?sitemap_type=2

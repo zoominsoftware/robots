@@ -24,3 +24,10 @@ Disallow: /photo.pl.html
 Disallow: /book.html
 Disallow: /mybooking.html
 Disallow: /confirmation.html
+Disallow: /reviewlist.*.html
+Disallow: /navigation_times
+Disallow: /hotelsonmap.*.json
+Disallow: /general.*
+Disallow: /markers_on_map 
+Disallow: /logo
+Disallow: /load_times

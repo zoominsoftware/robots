@@ -2,10 +2,6 @@
 User-agent: 008
 Disallow: /
 
-# MSNBot
-User-Agent: msnbot
-Crawl-Delay: 20
-
 User-Agent: bender
 Disallow: /my_shiny_metal_ass
 
@@ -22,7 +18,6 @@ Disallow: /*.xml
 Disallow: /*.rss
 Disallow: /*.i
 Disallow: /*.embed
-Disallow: /*.wired
 Disallow: /*/comments/*?*sort=
 Disallow: /r/*/comments/*/*/c*
 Disallow: /comments/*/*/c*
@@ -40,3 +35,4 @@ Disallow: /reddits/search
 Disallow: /search
 Disallow: /r/*/search
 Allow: /
+

@@ -1,8 +1,9 @@
-# This file was generated on Mon, 08 Oct 2012 20:55:47 +0000
+# This file was generated on Tue, 17 Jun 2014 08:58:47 +0000
 # If you are regularly crawling WordPress.com sites, please use our firehose to receive real-time push updates instead.
 # Please see http://en.wordpress.com/firehose/ for more details.
 
-Sitemap: http://en.wordpress.com/sitemap/
+Sitemap: http://wordpress.com/sitemap.xml
+Sitemap: http://wordpress.com/news-sitemap.xml
 
 User-agent: IRLbot
 Crawl-delay: 3600

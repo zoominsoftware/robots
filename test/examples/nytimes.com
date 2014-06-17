@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /ads/public/
+Allow: /svc/news/v3/all/pshb.rss
 Disallow: /ads/
 Disallow: /adx/bin/
 Disallow: /aponline/
@@ -17,22 +18,22 @@ Disallow: /packages/flash/multimedia/TEMPLATES/
 Disallow: /pages/college/
 Disallow: /paidcontent/
 Disallow: /partners/
+Disallow: /restaurants/search*
 Disallow: /reuters/
 Disallow: /thestreet/
-Allow: /svc/news/v3/all/pshb.rss	
 Disallow: /svc
 Disallow: /video/*/multimedia/*
+Disallow: /web-services/
 
 User-agent: Mediapartners-Google
-Disallow:
+Disallow: /restaurants/search*
 
 User-agent: AdsBot-Google
-Disallow:
+Disallow: /restaurants/search*
 
 User-agent: adidxbot
-Disallow:
+Disallow: /restaurants/search*
 
 Sitemap: http://spiderbites.nytimes.com/sitemaps/www.nytimes.com/sitemap.xml.gz
 Sitemap: http://www.nytimes.com/sitemaps/sitemap_news/sitemap.xml.gz
 Sitemap: http://spiderbites.nytimes.com/sitemaps/sitemap_video/sitemap.xml.gz
-Sitemap: http://spiderbites.nytimes.com/sitemaps/video.nytimes.com/sitemap.xml.gz

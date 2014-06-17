@@ -1,3 +1,4 @@
+Sitemap: http://www.1channel.ch/sitemap.xml
 User-agent: *
 Disallow: /db.php
 Disallow: /submit.php

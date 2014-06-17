@@ -1,5 +1,3 @@
-# Disallow all crawlers access to certain pages.
-
 User-agent: *
 Disallow: /exec/obidos/account-access-login
 Disallow: /exec/obidos/change-style
@@ -51,6 +49,10 @@ Disallow: /registry/wishlist/
 Disallow: /gp/registry/search.html
 Disallow: /gp/orc/rml/
 Disallow: /gp/dmusic/mp3/player
+Disallow: /gp/redirect.html
+Disallow: /gp/customer-media/actions/delete/
+Disallow: /gp/customer-media/actions/edit-caption/
+Disallow: /gp/dmusic/
 
 User-agent: EtaoSpider
 Disallow: /
@@ -59,3 +61,4 @@ Disallow: /
 Sitemap: http://www.amazon.co.uk/sitemap-manual-index.xml
 Sitemap: http://www.amazon.co.uk/sitemaps.f3053414d236e84.SitemapIndex_0.xml.gz
 Sitemap: http://www.amazon.co.uk/sitemaps.1946f6b8171de60.SitemapIndex_0.xml.gz
+

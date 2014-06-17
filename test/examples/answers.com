@@ -9,6 +9,7 @@ Disallow: /main/link_unit_ad.jsp
 Disallow: /main/Record
 Disallow: /main/searchDSResults.jsp
 Disallow: /main/burstBox.jsp
+Disallow: /main/cite_this_answer.jsp
 Disallow: /search?
 Disallow: /http://
 Disallow: /topic/http://
@@ -21,6 +22,8 @@ Disallow: /Q/Special:Search
 Disallow: /NotLgd
 Disallow: /Lgd
 Disallow: /templates
+Disallow: /experts/
+Disallow: /Q/Special:Cats
 
 User-Agent: Googlebot
 Disallow: /ajax/
@@ -49,6 +52,5 @@ Disallow: /Q/Special:Search
 Disallow: /NotLgd
 Disallow: /Lgd
 Disallow: /templates
-Disallow: /article
+Disallow: /experts/
 Allow: /
-

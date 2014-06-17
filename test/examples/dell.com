@@ -1,5 +1,4 @@
 User-agent: *
-Disallow:
 Allow:/*/compare.aspx*s=biz*
 Allow:/*/compare.aspx*s=hied*
 Allow:/*/compare.aspx*s=hea*
@@ -7,6 +6,7 @@ Allow:/*/compare.aspx*s=fed*
 Allow:/*/compare.aspx*s=slg*
 Allow:/*/compare.aspx*s=k12*
 Disallow: */api/
+Allow: /api/feeds.svc/rss/newsroom-press-releases/
 Disallow:/*cs=45
 Disallow:/*cs=04sp1
 Disallow:/*cs=04sp2
@@ -95,7 +95,10 @@ Disallow: /support/Diagnostics/*/DiagnosticResults/ShowResults/
 Disallow: /support/Diagnostics/*/Dispatch/ValidateOwner
 Disallow: /support/Diagnostics/*/Dispatch/ShippingInfo
 Disallow: /support/Diagnostics/*/Dispatch/ConfirmShippingInfo
-Disallow: /support/Diagnostics/*/Dispatch/ConfirmDispatch		
+Disallow: /support/Diagnostics/*/Dispatch/ConfirmDispatch
+Disallow: /support/my-support/*/*/*/*/servicetag/
+Disallow: /support/contents/us/en/19/article/Contact-Information/International-Support-Services/intl-support-services		
+Disallow: /learn/*/*/*/mse-assets/navigation-diagnose		
 Sitemap: http://www.dell.com/ae-sitemap.xml
 Sitemap: http://www.dell.com/ag-sitemap.xml
 Sitemap: http://www.dell.com/ai-sitemap.xml
@@ -157,13 +160,11 @@ Sitemap: http://www.dell.com/ed-sitemap.xml
 Sitemap: http://www.dell.com/ee-sitemap.xml
 Sitemap: http://www.dell.com/es-sitemap.xml
 Sitemap: http://www.dell.com/fr-sitemap.xml
-Sitemap: http://www.dell.com/fr-sitemap.xml
 Sitemap: http://www.dell.com/ga-sitemap.xml
 Sitemap: http://www.dell.com/gd-sitemap.xml
 Sitemap: http://www.dell.com/gh-sitemap.xml
 Sitemap: http://www.dell.com/gr-sitemap.xml
 Sitemap: http://www.dell.com/gt-sitemap.xml
-Sitemap: http://www.dell.com/gy-sitemap.xml
 Sitemap: http://www.dell.com/gy-sitemap.xml
 Sitemap: http://www.dell.com/hk-sitemap.xml
 Sitemap: http://www.dell.com/hn-sitemap.xml
@@ -213,7 +214,49 @@ Sitemap: http://www.dell.com/sitemap.xml
 Sitemap: http://www.dell.com/sk-sitemap.xml
 Sitemap: http://www.dell.com/sn-sitemap.xml
 Sitemap: http://www.dell.com/sr-sitemap.xml
+Sitemap: http://www.dell.com/support-at-sitemap.xml
+Sitemap: http://www.dell.com/support-al-sitemap.xml
+Sitemap: http://www.dell.com/support-au-sitemap.xml
+Sitemap: http://www.dell.com/support-ba-sitemap.xml
+Sitemap: http://www.dell.com/support-be-sitemap.xml
+Sitemap: http://www.dell.com/support-bg-sitemap.xml
+Sitemap: http://www.dell.com/support-br-sitemap.xml	
 Sitemap: http://www.dell.com/support-ca-sitemap.xml
+Sitemap: http://www.dell.com/support-ch-sitemap.xml
+Sitemap: http://www.dell.com/support-cn-sitemap.xml
+Sitemap: http://www.dell.com/support-de-sitemap.xml
+Sitemap: http://www.dell.com/support-dk-sitemap.xml
+Sitemap: http://www.dell.com/support-ee-sitemap.xml
+Sitemap: http://www.dell.com/support-es-sitemap.xml
+Sitemap: http://www.dell.com/support-fr-sitemap.xml
+Sitemap: http://www.dell.com/support-gh-sitemap.xml
+Sitemap: http://www.dell.com/support-gr-sitemap.xml
+Sitemap: http://www.dell.com/support-hk-sitemap.xml
+Sitemap: http://www.dell.com/support-hr-sitemap.xml
+Sitemap: http://www.dell.com/support-hu-sitemap.xml
+Sitemap: http://www.dell.com/support-ie-sitemap.xml
+Sitemap: http://www.dell.com/support-il-sitemap.xml
+Sitemap: http://www.dell.com/support-in-sitemap.xml
+Sitemap: http://www.dell.com/support-is-sitemap.xml
+Sitemap: http://www.dell.com/support-it-sitemap.xml
+Sitemap: http://www.dell.com/support-lt-sitemap.xml
+Sitemap: http://www.dell.com/support-ly-sitemap.xml
+Sitemap: http://www.dell.com/support-lv-sitemap.xml
+Sitemap: http://www.dell.com/support-jp-sitemap.xml
+Sitemap: http://www.dell.com/support-mk-sitemap.xml
+Sitemap: http://www.dell.com/support-mx-sitemap.xml
+Sitemap: http://www.dell.com/support-my-sitemap.xml
+Sitemap: http://www.dell.com/support-ng-sitemap.xml
+Sitemap: http://www.dell.com/support-nl-sitemap.xml
+Sitemap: http://www.dell.com/support-no-sitemap.xml
+Sitemap: http://www.dell.com/support-nz-sitemap.xml
+Sitemap: http://www.dell.com/support-ro-sitemap.xml
+Sitemap: http://www.dell.com/support-pt-sitemap.xml
+Sitemap: http://www.dell.com/support-se-sitemap.xml	
+Sitemap: http://www.dell.com/support-sg-sitemap.xml
+Sitemap: http://www.dell.com/support-th-sitemap.xml
+Sitemap: http://www.dell.com/support-uk-sitemap.xml
+Sitemap: http://www.dell.com/support-us-sitemap.xml				
 Sitemap: http://www.dell.com/sv-sitemap.xml
 Sitemap: http://www.dell.com/tc-sitemap.xml
 Sitemap: http://www.dell.com/th-sitemap.xml
@@ -230,7 +273,7 @@ Sitemap: http://www.dell.com/vc-sitemap.xml
 Sitemap: http://www.dell.com/ve-sitemap.xml
 Sitemap: http://www.dell.com/vg-sitemap.xml
 Sitemap: http://www.dell.com/vi-sitemap.xml
-Sitemap: http://www.dell.com/vi-sitemap.xml
-Sitemap: http://www.dell.com/vn-sitemap.xml             
+Sitemap: http://www.dell.com/vn-sitemap.xml
+Sitemap: http://www.dell.com/wwwsupport-us-sitemap.xml
 Sitemap: http://www.dell.com/yu-sitemap.xml
 Sitemap: http://www.dell.com/za-sitemap.xml

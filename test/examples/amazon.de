@@ -1,5 +1,3 @@
-# Disallow all crawlers access to certain pages.
-
 User-agent: *
 Disallow: /exec/obidos/account-access-login
 Disallow: /exec/obidos/change-style
@@ -60,6 +58,13 @@ Disallow: /gp/customer-reviews/dynamic/sims-box
 Disallow: /review/dynamic/sims-box
 Disallow: /*stressless*fernsehsessel*
 Disallow: /*stressless*sessel*
+Disallow: /gp/redirect.html
+Disallow: /gp/customer-media/actions/delete/
+Disallow: /gp/customer-media/actions/edit-caption/
+Disallow: /gp/dmusic/
+Disallow: /gp/help/customer/display.html?nodeId=200393390
+Disallow: /gp/customer-media/product-gallery/B007HCCOD0
+Disallow: /forum/kindle
 
 User-agent: EtaoSpider
 Disallow: /
@@ -68,3 +73,4 @@ Disallow: /
 Sitemap: http://www.amazon.de/sitemap-manual-index.xml
 Sitemap: http://www.amazon.de/sitemaps.f3053414d236e84.SitemapIndex_0.xml.gz
 Sitemap: http://www.amazon.de/sitemaps.1946f6b8171de60.SitemapIndex_0.xml.gz
+

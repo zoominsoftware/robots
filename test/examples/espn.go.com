@@ -1,4 +1,6 @@
 # robots.txt for Disallow: /
+User-agent: Mediapartners-Google 
+Disallow:
 
 User-agent: *
 Disallow: /cgi

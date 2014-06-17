@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: all4.css
-
-User-agent: ia_archiver
-Disallow: /

@@ -9,6 +9,7 @@ Disallow: /service/iframe
 Disallow: /j/
 Disallow: /link2/
 Disallow: /recommend/
+Disallow: /trailer/
 Sitemap: http://www.douban.com/sitemap_index.xml
 Sitemap: http://www.douban.com/sitemap_updated_index.xml
 

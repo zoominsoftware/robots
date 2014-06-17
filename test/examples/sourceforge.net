@@ -8,6 +8,10 @@ User-agent: Googlebot
 Disallow: /p/*/code/*
 Crawl-delay: 1
 
+User-agent: BingBot
+Disallow: /p/*/code/*
+Crawl-delay: 0
+
 User-agent: Slurp
 Disallow: /p/*/code/*
 Crawl-delay: 1

@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -n "$1" ]; then
+	wget $(basename $1)/robots.txt -O $(basename $1)
+else
+	echo "[ERROR] No site provided!"
+fi
+
+

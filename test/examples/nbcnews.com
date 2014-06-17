@@ -1,9 +1,0 @@
-User-agent: *
-Disallow: /error404.aspx
-Sitemap: http://www.msnbc.msn.com/xml/msnbc/SitemapIndex.xml
-Sitemap: http://www.nbcnews.com/technology/sitemaps/XML
-Sitemap: http://www.nbcnews.com/technology/sitemaps/GoogleNews
-Sitemap: http://www.nbcnews.com/travel/sitemaps/XML
-Sitemap: http://www.nbcnews.com/travel/sitemaps/GoogleNews
-Sitemap: http://www.nbcnews.com/business/sitemaps/XML
-Sitemap: http://www.nbcnews.com/business/sitemaps/GoogleNews

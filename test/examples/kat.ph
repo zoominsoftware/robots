@@ -30,7 +30,8 @@ Disallow: /usearch/
 Disallow: /advert/
 Disallow: /auth/
 Disallow: /comments/
+Disallow: /community/poll/
 
-Host: kat.ph
+Host: kickass.to
 
-Sitemap: http://kat.ph/sitemap/sitemapindex.xml
+Sitemap: http://kickass.to/sitemap/sitemapindex.xml

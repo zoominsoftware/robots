@@ -2,6 +2,8 @@
 User-agent: Googlebot
 Allow: /?_escaped_fragment_
 
+Allow: /?lang=
+Allow: /hashtag/*?src=
 Allow: /search?q=%23
 Disallow: /search/realtime
 Disallow: /search/users
@@ -10,11 +12,15 @@ Disallow: /search/*/grid
 Disallow: /*?
 Disallow: /*/followers
 Disallow: /*/following
+
+Disallow: /account/not_my_account
 
 #Yahoo! Search Engine Robot
 User-Agent: Slurp
 Allow: /?_escaped_fragment_
 
+Allow: /?lang=
+Allow: /hashtag/*?src=
 Allow: /search?q=%23
 Disallow: /search/realtime
 Disallow: /search/users
@@ -23,11 +29,15 @@ Disallow: /search/*/grid
 Disallow: /*?
 Disallow: /*/followers
 Disallow: /*/following
+
+Disallow: /account/not_my_account
 
 #Yandex Search Engine Robot
 User-agent: Yandex
 Allow: /?_escaped_fragment_
 
+Allow: /?lang=
+Allow: /hashtag/*?src=
 Allow: /search?q=%23
 Disallow: /search/realtime
 Disallow: /search/users
@@ -36,11 +46,15 @@ Disallow: /search/*/grid
 Disallow: /*?
 Disallow: /*/followers
 Disallow: /*/following
+
+Disallow: /account/not_my_account
 
 #Microsoft Search Engine Robot
 User-Agent: msnbot
 Allow: /?_escaped_fragment_
 
+Allow: /?lang=
+Allow: /hashtag/*?src=
 Allow: /search?q=%23
 Disallow: /search/realtime
 Disallow: /search/users
@@ -49,9 +63,13 @@ Disallow: /search/*/grid
 Disallow: /*?
 Disallow: /*/followers
 Disallow: /*/following
+
+Disallow: /account/not_my_account
 
 # Every bot that might possibly read and respect this file.
 User-agent: *
+Allow: /?lang=
+Allow: /hashtag/*?src=
 Allow: /search?q=%23
 Disallow: /search/realtime
 Disallow: /search/users
@@ -60,6 +78,9 @@ Disallow: /search/*/grid
 Disallow: /*?
 Disallow: /*/followers
 Disallow: /*/following
+
+Disallow: /account/not_my_account
+
 Disallow: /oauth
 Disallow: /1/oauth
 

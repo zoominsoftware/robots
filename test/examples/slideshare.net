@@ -24,12 +24,11 @@ Disallow: /fullscreen/
 Disallow: /group/
 Disallow: /ia/
 Disallow: /main/
-Disallow: /mobile/
 Disallow: /pingback/
 Disallow: /rss/tag/
 Disallow: /share/
 Disallow: /search/
 Disallow: /secret/
 Disallow: /slideshow/embed_code/
-Disallow: /tag/
 Disallow: /uploads/
+Allow: /api/v3/
