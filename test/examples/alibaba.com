@@ -20,20 +20,10 @@ Disallow: /member/*/contactinfo.html
 Disallow: /member/*/company_profile.html
 Disallow: /member/*/productlist.html
 Disallow: /newsuppliers/
-
-User-agent: gomezagent
-Disallow: /
-User-agent: GomezAgent
-Disallow: /
-User-Agent: gomezagent+1.0
-Disallow: /
-User-Agent: GomezAgent+1.0
-Disallow: /
-User-Agent: gomezagent+2.0
-Disallow: /
-User-Agent: GomezAgent+2.0
-Disallow: /
-User-Agent: gomezagent+3.0
-Disallow: /
-User-Agent: GomezAgent+3.0
-Disallow: /
+Disallow: /wholesalecheckout/
+Disallow: /buyofferdetail/
+Disallow: /trends/
+Disallow: /industry-promotion/
+Disallow: /city/
+Disallow: /countrysearch/*/*-importer.html
+Disallow: /countrysearch/*/*/importers/*.html

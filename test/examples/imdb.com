@@ -121,7 +121,6 @@ Disallow: /TitleBrowse
 Disallow: /Trailers
 Disallow: /Tsearch
 Disallow: /TUrls
-Disallow: /user
 Disallow: /VName
 Disallow: /Vote
 Disallow: /WorkedWith
@@ -244,7 +243,6 @@ Disallow: /TitleBrowse
 Disallow: /Trailers
 Disallow: /Tsearch
 Disallow: /TUrls
-Disallow: /user
 Disallow: /VName
 Disallow: /Vote
 Disallow: /WorkedWith

@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /admin
-Disallow: /ipad
-Sitemap: http://www.autohome.com.cn/news_sitemap.xml
-Sitemap: http://www.autohome.com.cn/bbs_sitemap.xml
-Sitemap: http://www.autohome.com.cn/brand_sitemap.xml
-Sitemap: http://www.autohome.com.cn/spec_sitemap.xml

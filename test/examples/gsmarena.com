@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /postopinion.php3
 Disallow: /postcomment.php3
+Disallow: /postreviewcomment.php3
 Disallow: /compare.php3
 Disallow: /forum/images/
 Disallow: /forum/groupcp.php
@@ -16,6 +17,8 @@ Disallow: /forums/
 Disallow: /new/
 Disallow: /apple/
 Disallow: /swf/
+Disallow: /a/
+Disallow: /report.php3
 
 User-agent: Mediapartners-Google 
 Disallow:

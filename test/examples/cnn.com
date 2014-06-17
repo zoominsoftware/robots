@@ -1,6 +1,7 @@
 Sitemap: http://www.cnn.com/sitemaps/sitemap-index.xml
 Sitemap: http://www.cnn.com/sitemaps/sitemap-news.xml
 Sitemap: http://www.cnn.com/sitemaps/sitemap-video-index.xml
+Sitemap: http://www.cnn.com/sitemaps/sitemap-interactive.xml
 User-agent: *
 Disallow: /.element
 Disallow: /editionssi
@@ -16,6 +17,7 @@ Disallow: /cnn_adspaces
 Disallow: /cnnbeta
 Disallow: /cnnintl_adspaces
 Disallow: /development
+Disallow: /help/cnnx.html 
 Disallow: /NewsPass
 Disallow: /NOKIA
 Disallow: /partners
@@ -30,3 +32,4 @@ Disallow: /QUICKNEWS
 Disallow: /test
 Disallow: /virtual
 Disallow: /WEB-INF
+Disallow: /search

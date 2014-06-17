@@ -14,3 +14,4 @@ disallow: /ajax*
 disallow: *embedded_video*
 disallow: /sendgame/
 disallow: /photos/view/
+disallow: player_config.php*

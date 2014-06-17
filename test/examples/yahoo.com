@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /p/
 Disallow: /r/
-Disallow: /*?
+Disallow: /bin/
+Disallow: /includes/

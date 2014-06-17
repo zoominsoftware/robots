@@ -87,6 +87,10 @@ Disallow: /
 User-agent: Download Ninja
 Disallow: /
 
+# Misbehaving: requests much too fast:
+User-agent: fast
+Disallow: /
+
 #
 # Sorry, wget in its recursive mode is a frequent problem.
 # Please read the man page and use it properly; there is a
@@ -132,7 +136,13 @@ Disallow: /
 # bot supports such a thing using the 'Crawl-delay' or another
 # instruction, please let us know.
 #
+# There is a special exception for API mobileview to allow dynamic
+# mobile web & app views to load section content.
+# These views aren't HTTP-cached but use parser cache aggressively
+# and don't expose special: pages etc.
+#
 User-agent: *
+Allow: /w/api.php?action=mobileview&
 Disallow: /w/
 Disallow: /trap/
 Disallow: /wiki/Especial:Search
@@ -444,6 +454,8 @@ Disallow: /wiki/Wikiquote:Votes_for_deletion_archive/
 Disallow: /wiki/Wikiquote%3AVotes_for_deletion_archive/
 Disallow: /wiki/Wikiquote_talk:Votes_for_deletion_archive/
 Disallow: /wiki/Wikiquote_talk%3AVotes_for_deletion_archive/
+
+Disallow: /wiki/Special:Maintenance
 #
 #
 #----------------------------------------------------------#
@@ -491,8 +503,6 @@ Disallow: /wiki/Wikipedia:Deletion_review/
 Disallow: /wiki/Wikipedia%3ADeletion_review/
 Disallow: /wiki/Wikipedia:WikiProject_Deletion_sorting/
 Disallow: /wiki/Wikipedia%3AWikiProject_Deletion_sorting/
-Disallow: /wiki/Wikipedia:Templates_for_deletion/
-Disallow: /wiki/Wikipedia%3ATemplates_for_deletion/
 Disallow: /wiki/Wikipedia:Files_for_deletion/
 Disallow: /wiki/Wikipedia%3AFiles_for_deletion/
 Disallow: /wiki/Wikipedia:Possibly_unfree_files/
@@ -517,8 +527,6 @@ Disallow: /wiki/Wikipedia_talk:Deletion_review/
 Disallow: /wiki/Wikipedia_talk%3ADeletion_review/
 Disallow: /wiki/Wikipedia_talk:WikiProject_Deletion_sorting/
 Disallow: /wiki/Wikipedia_talk%3AWikiProject_Deletion_sorting/
-Disallow: /wiki/Wikipedia_talk:Templates_for_deletion/
-Disallow: /wiki/Wikipedia_talk%3ATemplates_for_deletion/
 Disallow: /wiki/Wikipedia_talk:Files_for_deletion/
 Disallow: /wiki/Wikipedia_talk%3AFiles_for_deletion/
 Disallow: /wiki/Wikipedia_talk:Possibly_unfree_files/

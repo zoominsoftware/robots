@@ -47,6 +47,7 @@ Disallow: /suggested-edits?
 Disallow: /ajax/
 Disallow: /plugins/
 Disallow: /error
+Disallow: /gps/
 Allow: /
 
 #
@@ -78,12 +79,6 @@ Disallow: /
 User-agent: Googlebot-Image
 Disallow: /*/ivc/*
 Disallow: /users/flair/
-
-#
-# Baidu you have been a bad boy
-#
-User-agent: Baiduspider
-Disallow: /
 
 #
 # this technically isn't valid, since for some godforsaken reason 

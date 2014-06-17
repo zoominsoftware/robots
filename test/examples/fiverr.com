@@ -9,6 +9,7 @@ Sitemap: http://fiverr.com/sitemap_collections_index.xml.gz
 Sitemap: http://fiverr.com/sitemap_tags_index.xml.gz
 Disallow: /terms_of_service
 Disallow: /conversations/
+Disallow: /orders/timeline/*
 Disallow: /s/
 Disallow: */pinned_flashes/*
 Disallow: /gigs/*/share/
@@ -22,9 +23,6 @@ Disallow: /categories/Postcards
 Disallow: /purchases
 Disallow: /user_sessions
 Disallow: /users/
-Disallow: /gigs/*?
-Disallow: /collections/*?
-Disallow: /categories/*?
 Disallow: /counter/*?
 Disallow: /counter/
 Disallow: /counter

@@ -8,6 +8,7 @@ Disallow: /services/
 Disallow: /api/
 Disallow: /users/
 Disallow: /clips/
+Disallow: /6117/
 
 User-agent: bingbot
 Disallow: /*?f=
@@ -20,6 +21,7 @@ Disallow: /services/
 Disallow: /api/
 Disallow: /users/
 Disallow: /clips/
+Disallow: /6117/
 
 User-agent: msnbot
 Disallow: /*?f=
@@ -32,9 +34,8 @@ Disallow: /services/
 Disallow: /api/
 Disallow: /users/
 Disallow: /clips/
+Disallow: /6117/
 
-Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_001.xml
 Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_1999_001.xml
 Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_2000_001.xml
 Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_2004_001.xml
@@ -44,11 +45,5 @@ Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_2007_001.xml
 Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_2008_001.xml
 Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_2009_001.xml
 Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_2010_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_1999_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_2000_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_2004_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_2006_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_2007_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_2008_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_2009_001.xml
-Sitemap: http://www.ehow.com/sitemap_en-us_wap_index_2010_001.xml
+Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_2011_001.xml
+Sitemap: http://www.ehow.com/sitemap_en-us_desktop_index_001.xml

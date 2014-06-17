@@ -14,3 +14,6 @@ Disallow: /templates/
 Disallow: /tmp/
 Disallow: /xmlrpc/
 Disallow: /corp/management-bradley.htm
+Disallow: /video/
+Disallow: /Scripts/
+Disallow: /cron.php

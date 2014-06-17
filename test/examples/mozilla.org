@@ -1,5 +1,6 @@
-User-agent: *
-Disallow: /*/download/
-Disallow: /*/whatsnew/
-Disallow: /*/firstrun/
-Disallow: /b/*
+user-agent: *
+disallow: /*/download/
+disallow: /*/firstrun/
+disallow: /*/newsletter/existing/
+disallow: /*/whatsnew/
+disallow: /b/

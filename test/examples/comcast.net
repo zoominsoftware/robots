@@ -1,5 +1,4 @@
-# robots.txt for xfinity.comcast.net :: akamai version
-
+# robots.txt for xfinity.comcast.net :: version to exclude www1-9 from search engines
 User-agent: *
 Disallow: /user/authkey/
 Disallow: */data/*
@@ -22,6 +21,5 @@ Disallow: /xfinity/
 Disallow: /test/
 Disallow: /lite/
 Disallow: /light/
-Disallow: /tt2/
 
 # Sitemap: http://xfinity.comcast.net/sitemap_index.xml

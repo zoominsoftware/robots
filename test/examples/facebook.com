@@ -1,20 +1,14 @@
-# Notice: if you would like to crawl Facebook you can
-# contact us here: http://www.facebook.com/apps/site_scraping_tos.php
-# to apply for white listing. Our general terms are available
-# at http://www.facebook.com/apps/site_scraping_tos_terms.php
+# Notice: Crawling Facebook is prohibited unless you have express written
+# permission. See: http://www.facebook.com/apps/site_scraping_tos_terms.php
 
 User-agent: baiduspider
-Disallow: /ac.php
-Disallow: /ae.php
 Disallow: /ajax/
 Disallow: /album.php
-Disallow: /ap.php
-Disallow: /autologin.php
 Disallow: /checkpoint/
 Disallow: /contact_importer/
 Disallow: /feeds/
+Disallow: /file_download.php
 Disallow: /l.php
-Disallow: /o.php
 Disallow: /p.php
 Disallow: /photo.php
 Disallow: /photo_comments.php
@@ -23,17 +17,13 @@ Disallow: /photos.php
 Disallow: /sharer/
 
 User-agent: Googlebot
-Disallow: /ac.php
-Disallow: /ae.php
 Disallow: /ajax/
 Disallow: /album.php
-Disallow: /ap.php
-Disallow: /autologin.php
 Disallow: /checkpoint/
 Disallow: /contact_importer/
 Disallow: /feeds/
+Disallow: /file_download.php
 Disallow: /l.php
-Disallow: /o.php
 Disallow: /p.php
 Disallow: /photo.php
 Disallow: /photo_comments.php
@@ -42,17 +32,13 @@ Disallow: /photos.php
 Disallow: /sharer/
 
 User-agent: msnbot
-Disallow: /ac.php
-Disallow: /ae.php
 Disallow: /ajax/
 Disallow: /album.php
-Disallow: /ap.php
-Disallow: /autologin.php
 Disallow: /checkpoint/
 Disallow: /contact_importer/
 Disallow: /feeds/
+Disallow: /file_download.php
 Disallow: /l.php
-Disallow: /o.php
 Disallow: /p.php
 Disallow: /photo.php
 Disallow: /photo_comments.php
@@ -60,18 +46,14 @@ Disallow: /photo_search.php
 Disallow: /photos.php
 Disallow: /sharer/
 
-User-agent: naverbot
-Disallow: /ac.php
-Disallow: /ae.php
+User-agent: Naverbot
 Disallow: /ajax/
 Disallow: /album.php
-Disallow: /ap.php
-Disallow: /autologin.php
 Disallow: /checkpoint/
 Disallow: /contact_importer/
 Disallow: /feeds/
+Disallow: /file_download.php
 Disallow: /l.php
-Disallow: /o.php
 Disallow: /p.php
 Disallow: /photo.php
 Disallow: /photo_comments.php
@@ -80,17 +62,13 @@ Disallow: /photos.php
 Disallow: /sharer/
 
 User-agent: seznambot
-Disallow: /ac.php
-Disallow: /ae.php
 Disallow: /ajax/
 Disallow: /album.php
-Disallow: /ap.php
-Disallow: /autologin.php
 Disallow: /checkpoint/
 Disallow: /contact_importer/
 Disallow: /feeds/
+Disallow: /file_download.php
 Disallow: /l.php
-Disallow: /o.php
 Disallow: /p.php
 Disallow: /photo.php
 Disallow: /photo_comments.php
@@ -99,17 +77,13 @@ Disallow: /photos.php
 Disallow: /sharer/
 
 User-agent: Slurp
-Disallow: /ac.php
-Disallow: /ae.php
 Disallow: /ajax/
 Disallow: /album.php
-Disallow: /ap.php
-Disallow: /autologin.php
 Disallow: /checkpoint/
 Disallow: /contact_importer/
 Disallow: /feeds/
+Disallow: /file_download.php
 Disallow: /l.php
-Disallow: /o.php
 Disallow: /p.php
 Disallow: /photo.php
 Disallow: /photo_comments.php
@@ -118,17 +92,13 @@ Disallow: /photos.php
 Disallow: /sharer/
 
 User-agent: teoma
-Disallow: /ac.php
-Disallow: /ae.php
 Disallow: /ajax/
 Disallow: /album.php
-Disallow: /ap.php
-Disallow: /autologin.php
 Disallow: /checkpoint/
 Disallow: /contact_importer/
 Disallow: /feeds/
+Disallow: /file_download.php
 Disallow: /l.php
-Disallow: /o.php
 Disallow: /p.php
 Disallow: /photo.php
 Disallow: /photo_comments.php
@@ -137,17 +107,13 @@ Disallow: /photos.php
 Disallow: /sharer/
 
 User-agent: Yandex
-Disallow: /ac.php
-Disallow: /ae.php
 Disallow: /ajax/
 Disallow: /album.php
-Disallow: /ap.php
-Disallow: /autologin.php
 Disallow: /checkpoint/
 Disallow: /contact_importer/
 Disallow: /feeds/
+Disallow: /file_download.php
 Disallow: /l.php
-Disallow: /o.php
 Disallow: /p.php
 Disallow: /photo.php
 Disallow: /photo_comments.php
@@ -155,10 +121,29 @@ Disallow: /photo_search.php
 Disallow: /photos.php
 Disallow: /sharer/
 
-User-agent: *
+User-agent: Yeti
+Disallow: /ajax/
+Disallow: /album.php
+Disallow: /checkpoint/
+Disallow: /contact_importer/
+Disallow: /feeds/
+Disallow: /file_download.php
+Disallow: /l.php
+Disallow: /p.php
+Disallow: /photo.php
+Disallow: /photo_comments.php
+Disallow: /photo_search.php
+Disallow: /photos.php
+Disallow: /sharer/
+
+User-agent: ia_archiver
+Allow: /about/privacy
+Allow: /full_data_use_policy
+Allow: /legal/terms
+Allow: /policy.php
 Disallow: /
 
-# E-mail sitemaps@lists.facebook.com if you are authorized to access these and are getting denied.
-Sitemap: http://www.facebook.com/sitemap.php
+User-agent: *
+Disallow: /
 
 

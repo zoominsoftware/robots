@@ -9,27 +9,3 @@ Disallow: /comment*
 Disallow: /tracker*
 Disallow: /img/*
 Disallow: /z/*
-Disallow: /low*
-Disallow: /any*
-
-# Hello robots!
-# Don't go over 1 request per second or the firewall will block your ISP
-#
-#					      _
-#					     ( )
-#					      H
-#					      H
-#					     _H_ 
-#					  .-'-.-'-.
-#					 /         \
-#					|           |
-#					|   .-------'._
-#					|  / /  '.' '. \
-#					|  \ \ @   @ / /
-#					|   '---------'
-#					|    _______|
-#					|  .'-+-+-+|
-#					|  '.-+-+-+|
-#					|    """""" |
-#					'-.__   __.-'
-#					     """

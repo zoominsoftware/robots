@@ -6,7 +6,7 @@
 
 User-agent: *
 Disallow: /account/*/poll
-Disallow: /users/*/more_profile
+Disallow: /*/more
 Disallow: /account/*/append
 Disallow: /account/questions/poll
 Disallow: /*/gifts/sync
