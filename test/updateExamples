@@ -1,4 +1,4 @@
 #!/bin/sh
 cd examples
-find . -type f -exec sh -c 'wget $(basename {})/robots.txt -O $(basename {})' \;
+find . -type f | grep -v "helloworldweb" | tr '\n' '\0' | xargs -0 -n 1 ../getrobots
 
