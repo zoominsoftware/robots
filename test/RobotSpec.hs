@@ -1,17 +1,16 @@
-{-# LANGUAGE CPP               #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE CPP, OverloadedStrings #-}
 module RobotSpec where
 import           Network.HTTP.Robots
 import           System.Directory
 import           Test.Hspec
 
 import           Control.Applicative
-import           Control.Monad          (filterM, forM_)
+import           Control.Monad                    (filterM, forM_)
 import           Control.Monad.IO.Class
 import           Data.Attoparsec.ByteString.Char8
-import qualified Data.ByteString.Char8  as BS
+import qualified Data.ByteString.Char8            as BS
 import           Data.Either
-import           System.IO.Unsafe       (unsafePerformIO)
+import           System.IO.Unsafe                 (unsafePerformIO)
 
 -- apparently not a utility function.
 myIsLeft :: Either a b -> Bool
@@ -61,6 +60,11 @@ spec = do
       (parseOnly robotP "Sitemap: http:www.ebay.com/lst/PDP_US_main_index.xml\nUser-agent: *\nDisallow: /\n")
         `shouldBe` Right (([([Wildcard], [Disallow "/"])]), ["Sitemap: http:www.ebay.com/lst/PDP_US_main_index.xml"])
 
+  describe "regressions" $ do
+    it "cellularphonedepot regression" $ do
+      f <- BS.readFile (dirname ++ "/examples/cellularphonedepot.com")
+      parseOnly robotP f `shouldBe` Right ([([Wildcard],[Disallow "/*",Allow "/?okparam=",Allow "/$"])],[])
+
 
 
 
@@ -69,12 +73,12 @@ spec = do
 
 
   describe "smoke test - check we can read all the robots.txt examples" $
-	-- we should also verify if there were unparsed items
+    -- we should also verify if there were unparsed items
     forM_ texts $ \(name,text) ->
       it ("should parse " ++ name) $
         parseRobots text `shouldSatisfy`
           (\x -> 1 == length (rights [x])
-			  -- head is safe here if first condition is met
+              -- head is safe here if first condition is met
               && 0 == length (snd . head . rights $ [x]))
 
   -- the behaviour here doesn't seem to be rigorously specified: it

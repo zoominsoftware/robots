@@ -4,16 +4,16 @@ module Network.HTTP.Robots where
 import           Control.Applicative
 import           Control.Monad
 import           Data.Attoparsec.ByteString.Char8 hiding (skipSpace)
-import           Data.ByteString.Char8 (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import qualified Data.Attoparsec.Text as AT (isEndOfLine)
-import           Data.Either           (partitionEithers)
-import           Data.List             (find)
-import           Data.Maybe            (catMaybes)
-import           Data.Char             (toUpper)
-import           Data.Time.Clock
-import           Data.Time.LocalTime()
+import qualified Data.Attoparsec.Text             as AT (isEndOfLine)
+import           Data.ByteString.Char8            (ByteString)
+import qualified Data.ByteString.Char8            as BS
+import           Data.Char                        (toUpper)
+import           Data.Either                      (partitionEithers)
+import           Data.List                        (find)
+import           Data.Maybe                       (catMaybes)
 import           Data.Ratio
+import           Data.Time.Clock
+import           Data.Time.LocalTime              ()
 
 type Robot = ([([UserAgent], [Directive])], [Unparsable])
 
@@ -34,8 +34,8 @@ type TimeInterval = (DiffTime, DiffTime)
 -- http://bloganddiscussion.com/anythingcomputer/1/robots-txt-noarchive-nocache-nosnippet/
 data Directive = Allow Path
                | Disallow Path
-               | CrawlDelay { crawlDelay    :: Rational
-                            , timeInterval  :: TimeInterval
+               | CrawlDelay { crawlDelay   :: Rational
+                            , timeInterval :: TimeInterval
                             }
                | NoArchive Path
                | NoSnippet Path
@@ -166,7 +166,9 @@ skipSpace :: Parser ()
 skipSpace = skipWhile (\x -> x==' ' || x == '\t')
 
 directiveP :: Parser Directive
-directiveP = choice [ stringCI "Disallow:" >> skipSpace >>
+directiveP = do
+  skipSpace
+  choice [ stringCI "Disallow:" >> skipSpace >>
                         ((Disallow <$> tokenP) <|>
                       -- This requires some explanation.
                       -- The RFC suggests that an empty Disallow line means
@@ -210,7 +212,7 @@ tokenP :: Parser ByteString
 tokenP = skipSpace >> takeWhile1 (not . isSpace) <* skipSpace
 tokenWithSpacesP :: Parser ByteString
 tokenWithSpacesP = skipSpace >> takeWhile1 (not . (\c -> c == '#' || AT.isEndOfLine c))
-							 <* takeTill AT.isEndOfLine
+                             <* takeTill AT.isEndOfLine
 
 -- I lack the art to make this prettier.
 -- Currently does not take into account the CrawlDelay / Request Rate directives
