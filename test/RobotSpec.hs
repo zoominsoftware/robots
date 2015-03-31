@@ -31,6 +31,7 @@ texts = unsafePerformIO $ do
   -- this is just an ugly burn-in test - we collect examples of
   -- robots.txt and check we can read them all.
 
+main = hspec spec
 
 spec :: Spec
 spec = do
@@ -164,6 +165,9 @@ spec = do
       canAccess "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" hellobot "/" `shouldBe` False
       canAccess "googlebot" hellobot "/" `shouldBe` True
 
+    it "operates correctly on clkmg.com" $ do
+      (Right hellobot) <- parseOnly robotP <$> liftIO (BS.readFile "./test/examples/clkmg.com")
+      canAccess "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" hellobot "/" `shouldBe` False
 
 
   describe "incorrect robots files" $ do
