@@ -1,0 +1,523 @@
+User-agent: *
+Disallow: /*.msi
+Disallow: /cgi-bin/
+
+User-agent: SISTRIX Crawler
+User-agent: aiHitBot/2.8
+User-agent: Aboundex/0.3
+User-agent: CompSpyBot
+User-agent: BLEXBot/1.0
+User-agent: 008
+User-agent: 360Spider
+User-agent: AdnormCrawler www.adnorm.com/crawler
+User-agent: psbot/0.1 (+http://www.picsearch.com/bot.html)
+User-agent: SeznamBot/3.1-test1 (+http://fulltext.sblog.cz/)
+User-agent: SeznamBot/3.0 (+http://fulltext.sblog.cz/)
+User-agent: Seznam screenshot-generator 2.0; (+http://fulltext.sblog.cz/screenshot/)
+User-agent: netEstate NE Crawler
+User-agent: YandexBot/3.0 (+http://yandex.com/bots)
+User-agent: ShopWiki
+User-agent: ShopWiki/1.0 (+http://www.shopwiki.com/wiki/Help:Bot)
+User-agent: Sosospider+
+User-agent: Sosoimagespider+
+User-agent: Fitel5Browser
+user-agent: BIXOCRAWLER
+User-agent: Jakarta Commons HttpClient
+User-agent: HuaweiSymantecSpider
+User-agent: yeti
+User-agent: omniexplorer_bot
+User-agent: Yandeximages
+User-agent: YandexImages/3.0 (+http://yandex.com/bots)
+User-agent: Spinn3r
+User-agent: sogou
+User-agent: Sogou web spider/3.0
+User-agent: Sogou web spider/4.0 (+http://www.sogou.com/docs/help/webmasters.htm#07)
+User-agent: New-Sogou-Spider/1.0
+User-agent: jikespider
+User-agent: PaperLiBot
+User-Agent: PaperLiBot/2.1 (http://support.paper.li/entries/20023257-what-is-paper-li)
+User-agent: Amazon
+User-agent: boardreader
+User-agent: boardtracker
+User-agent: R6_CommentReader
+User-agent: R6_FeedFetcher
+User-agent: fetcher7.mail.ru
+User-agent: fetcher8.mail.ru
+User-agent: fetcher7-7.p.mail.ru
+User-agent: fetcher1-3.p.mail.ru
+User-agent: fetcher1-4.p.mail.ru
+User-agent: fetcher1-5.p.mail.ru
+User-agent: fetcher1-6.p.mail.ru
+User-agent: fetcher1-7.p.mail.ru
+User-agent: fetcher2-1.p.mail.ru
+User-agent: fetcher2-2.p.mail.ru
+User-agent: fetcher2-3.p.mail.ru
+User-agent: fetcher2-4.p.mail.ru
+User-agent: fetcher2-5.p.mail.ru
+User-agent: fetcher2-6.p.mail.ru
+User-agent: fetcher2-7.p.mail.ru
+User-agent: fetcher3-1.p.mail.ru
+User-agent: fetcher3-2.p.mail.ru
+User-agent: fetcher3-3.p.mail.ru
+User-agent: fetcher3-4.p.mail.ru
+User-agent: fetcher3-5.p.mail.ru
+User-agent: fetcher3-6.p.mail.ru
+User-agent: fetcher3-7.p.mail.ru
+User-agent: fetcher4-3.p.mail.ru
+User-agent: fetcher4-4.p.mail.ru
+User-agent: fetcher4-7.p.mail.ru
+User-agent: fetcher7-1.p.mail.ru
+User-agent: fetcher7-2.p.mail.ru
+User-agent: fetcher7-3.p.mail.ru
+User-agent: fetcher7-4.p.mail.ru
+User-agent: fetcher7-5.p.mail.ru
+User-agent: fetcher7-6.p.mail.ru
+User-agent: fetcher8-1.p.mail.ru
+User-agent: fetcher8-2.p.mail.ru
+User-agent: fetcher8-3.p.mail.ru
+User-agent: fetcher8-4.p.mail.ru
+User-agent: fetcher8-5.p.mail.ru
+User-agent: fetcher8-6.p.mail.ru
+User-agent: fetcher2.mail.ru
+User-agent: fetcher8-7.p.mail.ru
+User-agent: fetcher1-1.p.mail.ru
+User-agent: fetcher1-2.p.mail.ru
+User-agent: fetcher5.mail.ru
+User-agent: fetcher5-1.p.mail.ru
+User-agent: fetcher5-2.p.mail.ru
+User-agent: fetcher5-3.p.mail.ru
+User-agent: fetcher5-4.p.mail.ru
+User-agent: fetcher5-5.p.mail.ru
+User-agent: fetcher5-6.p.mail.ru
+User-agent: fetcher5-7.p.mail.ru
+user-agent: Radian6
+user-agent: ScoutJet
+User-agent: spbot/4.0.4
+User-agent: spbot/4.0.6
+user-agent: AhrefsBot
+User-agent: TwengaBot-2.0
+User-agent: MJ12bot
+User-agent: MJ12bot/v1.4.3
+User-agent: MJ12bot/v1.4.4 (http://www.majestic12.co.uk/bot.php?+)
+User-agent: sistrix
+User-agent: Ezooms/1.0 mailto:help@moz.com
+User-agent: Aboundex/0.2 (http://www.aboundex.com/crawler/)
+User-agent: AhrefsBot/4.0
+User-agent: AhrefsBot/5.0 (+http://ahrefs.com/robot/)
+User-agent: influencebo
+User-agent: coccoc
+User-agent: Mail.Ru
+User-agent: Aqua_Products
+User-agent: BackDoorBot
+User-agent: BackDoorBot/1.0
+User-agent: Black.Hole
+User-agent: BlackWidow
+User-agent: BlowFish
+User-agent: BlowFish/1.0
+User-agent: Bookmark search tool
+User-agent: Bot mailto:craftbot@yahoo.com
+User-agent: BotALot
+User-agent: BotRightHere
+User-agent: BuiltBotTough
+User-agent: Bullseye
+User-agent: Bullseye/1.0
+User-agent: BunnySlippers
+User-agent: Butterfly/1.0 (+http://labs.topsy.com/butterfly/)
+User-agent: CatchBot/5.0 +http://www.catchbot.com
+User-agent: Cegbfeieh
+User-agent: ceron.jp/1.0
+User-agent: CheeseBot
+User-agent: CherryPicker
+User-agent: CherryPickerElite/1.0
+User-agent: CherryPickerSE/1.0
+User-agent: ChinaClaw
+User-agent: Comodo Spider 1.2
+User-agent: Copernic
+User-agent: CopyRightCheck
+User-agent: CrawlDaddy v0.3.0 abot v1.2.0.0
+User-agent: CrawlerProcess (http://www.PowerMapper.com)
+User-agent: Crescent
+User-agent: Crescent Internet ToolPak HTTP OLE Control v.1.0
+User-agent: Custo
+User-agent: DISCo
+User-agent: DISCo Pump 3.0
+User-agent: DISCo Pump 3.2
+User-agent: DISCoFinder
+User-agent: DittoSpyder
+User-agent: Download Demon
+User-agent: Download Demon/3.2.0.8
+User-agent: Download Demon/3.5.0.11
+User-agent: Dow Jones Searchbot
+User-agent: EirGrabber
+User-agent: EmailCollector
+User-agent: EmailSiphon
+User-agent: EmailWolf
+User-agent: EroCrawler
+User-agent: Express WebPictures
+User-agent: Express WebPictures (www.express-soft.com)
+User-agent: ExtractorPro
+User-agent: EyeNetIE
+User-agent: FairAd Client
+User-agent: Flaming AttackBot
+User-agent: FlashGet
+User-agent: FlashGet WebWasher 3.2
+User-agent: Foobot
+User-agent: FrontPage
+User-agent: FrontPage [NC,OR]
+User-agent: Gaisbot
+User-agent: GetRight
+User-agent: GetRight/2.11
+User-agent: GetRight/3.1
+User-agent: GetRight/3.2
+User-agent: GetRight/3.3
+User-agent: GetRight/3.3.3
+User-agent: GetRight/3.3.4
+User-agent: GetRight/4.0.0
+User-agent: GetRight/4.1.0
+User-agent: GetRight/4.1.1
+User-agent: GetRight/4.1.2
+User-agent: GetRight/4.2
+User-agent: GetRight/4.2b (Portuguxeas)
+User-agent: GetRight/4.2c
+User-agent: GetRight/4.3
+User-agent: GetRight/4.5
+User-agent: GetRight/4.5a
+User-agent: GetRight/4.5b
+User-agent: GetRight/4.5b1
+User-agent: GetRight/4.5b2
+User-agent: GetRight/4.5b3
+User-agent: GetRight/4.5b6
+User-agent: GetRight/4.5b7
+User-agent: GetRight/4.5c
+User-agent: GetRight/4.5d
+User-agent: GetRight/4.5e
+User-agent: GetRight/5.0beta1
+User-agent: GetRight/5.0beta2
+User-agent: GetWeb!
+User-agent: Gigabot/2.0
+User-agent: Go!Zilla
+User-agent: Go!Zilla (www.gozilla.com)
+User-agent: Go!Zilla 3.3 (www.gozilla.com)
+User-agent: Go!Zilla 3.5 (www.gozilla.com)
+User-agent: Go-Ahead-Got-It
+User-agent: GrabNet
+User-agent: Grafula
+User-agent: HMView
+User-agent: HTTrack
+User-agent: HTTrack 3.0
+User-agent: HTTrack [NC,OR]
+User-agent: Harvest
+User-agent: Harvest/1.5
+User-agent: Hatena::Bookmark/2.00
+User-agent: Image Stripper
+User-agent: Image Sucker
+User-agent: Indy Library
+User-agent: Indy Library [NC,OR]
+User-agent: InfoNaviRobot
+User-agent: InterGET
+User-agent: Internet Ninja
+User-agent: Internet Ninja 4.0
+User-agent: Internet Ninja 5.0
+User-agent: Internet Ninja 6.0
+User-agent: Iron33/1.0.2
+User-agent: JOC Web Spider
+User-agent: JennyBot
+User-agent: JetCar
+User-agent: Kenjin Spider
+User-agent: Kenjin.Spider
+User-agent: Keyword Density/0.9
+User-agent: Keyword.Density
+User-agent: LNSpiderguy
+User-agent: LeechFTP
+User-agent: LexiBot
+User-agent: LinkScan/8.1a Unix
+User-agent: LinkScan/8.1a.Unix
+User-agent: LinkWalker
+User-agent: LinkextractorPro
+User-agent: MIDown tool
+User-agent: MIIxpc
+User-agent: MIIxpc/4.2
+User-agent: MSIECrawler
+User-agent: Mass Downloader
+User-agent: Mass Downloader/2.2
+User-agent: Mata Hari
+User-agent: Mata.Hari
+User-agent: meanpathbot/1.0; (+http://www.meanpath.com/meanpathbot.html)
+User-agent: MetaGeneratorCrawler/1.3.2 (www.metagenerator.info)
+User-agent: MetaURI API/2.0 (+metauri.com)
+User-agent: Microsoft URL Control
+User-agent: Microsoft URL Control . 5.01.4511
+User-agent: Microsoft URL Control . 6.00.8169
+User-agent: Microsoft.URL
+User-agent: Mister PiX
+User-agent: Mister PiX version.dll
+User-agent: Mister Pix II 2.01
+User-agent: Mister Pix II 2.02a
+User-agent: Mister.PiX
+User-agent: NICErsPRO
+User-agent: niki-bot
+User-agent: NPBot
+User-agent: NPbot
+User-agent: Navroad
+User-agent: NearSite
+User-agent: Net Vampire
+User-agent: Net Vampire/3.0
+User-agent: NetAnts
+User-agent: NetAnts/1.10
+User-agent: NetAnts/1.23
+User-agent: NetAnts/1.24
+User-agent: NetAnts/1.25
+User-agent: NetMechanic
+User-agent: NetSpider
+User-agent: NetZIP
+User-agent: NetZip Downloader 1.0 Win32(Nov 12 1998)
+User-agent: NetZip-Downloader/1.0.62 (Win32; Dec 7 1998)
+User-agent: NetZippy+(http://www.innerprise.net/usp-spider.asp)
+User-agent: niki-bot
+User-agent: oBot/2.3.1 (+http://filterdb.iss.net/crawler/)
+User-agent: Octopus
+User-agent: Offline Explorer
+User-agent: Offline Explorer/1.2
+User-agent: Offline Explorer/1.4
+User-agent: Offline Explorer/1.6
+User-agent: Offline Explorer/1.7
+User-agent: Offline Explorer/1.9
+User-agent: Offline Explorer/2.0
+User-agent: Offline Explorer/2.1
+User-agent: Offline Explorer/2.3
+User-agent: Offline Explorer/2.4
+User-agent: Offline Explorer/2.5
+User-agent: Offline Navigator
+User-agent: Offline.Explorer
+User-agent: Openbot
+User-agent: Openfind
+User-agent: Openfind data gatherer
+User-agent: Oracle Ultra Search
+User-agent: PageGrabber
+User-agent: PagesInventory (robot http://www.pagesinvenotry.com)
+User-agent: panscient.com
+User-agent: Papa Foto
+User-agent: PerMan
+User-agent: ProPowerBot/2.14
+User-agent: ProWebWalker
+User-agent: Python-urllib
+User-agent: QueryN Metasearch
+User-agent: QueryN.Metasearch
+User-agent: RMA
+User-agent: Radiation Retriever 1.1
+User-agent: ReGet
+User-agent: RealDownload
+User-agent: RealDownload/4.0.0.40
+User-agent: RealDownload/4.0.0.41
+User-agent: RealDownload/4.0.0.42
+User-agent: RepoMonkey
+User-agent: RepoMonkey Bait & Tackle/v1.01
+User-agent: SISTRIX Crawler http://crawler.sistrix.net/
+User-agent: SiteSnagger
+User-agent: SlySearch
+User-agent: SmartDownload
+User-agent: SmartDownload/1.2.76 (Win32; Apr 1 1999)
+User-agent: SmartDownload/1.2.77 (Win32; Aug 17 1999)
+User-agent: SmartDownload/1.2.77 (Win32; Feb 1 2000)
+User-agent: SmartDownload/1.2.77 (Win32; Jun 19 2001)
+User-agent: Sogou Spider
+User-agent: SpankBot
+User-agent: spbot/4.0.4 (+http://www.seoprofiler.com/bot)
+User-agent: spbot/4.0.5 (+http://www.seoprofiler.com/bot)
+User-agent: spbot/4.0.7 (+http://www.OpenLinkProfiler.org/bot)
+User-agent: Sqworm/2.9.85-BETA (beta_release; 20011115-775; i686-pc-linux)
+User-agent: SuperBot
+User-agent: SuperBot/3.0 (Win32)
+User-agent: SuperBot/3.1 (Win32)
+User-agent: SuperHTTP
+User-agent: SuperHTTP/1.0
+User-agent: Surfbot
+User-agent: SurveyBot/2.3 (DomainTools)
+User-agent: Szukacz/1.4
+User-agent: Teleport
+User-agent: Teleport Pro
+User-agent: Teleport Pro/1.29
+User-agent: Teleport Pro/1.29.1590
+User-agent: Teleport Pro/1.29.1634
+User-agent: Teleport Pro/1.29.1718
+User-agent: Teleport Pro/1.29.1820
+User-agent: Teleport Pro/1.29.1847
+User-agent: TeleportPro
+User-agent: Telesoft
+User-agent: The Intraformant
+User-agent: The.Intraformant
+User-agent: TheNomad
+User-agent: TightTwatBot
+User-agent: Titan
+User-agent: True_Robot
+User-agent: True_Robot/1.0
+User-agent: TurnitinBot
+User-agent: TurnitinBot/1.5
+User-agent: Twitterbot/1.0
+User-agent: TweetedTimes Bot/1.0 (+http://tweetedtimes.com)
+User-agent: URLAppendBot/1.0 (+http://www.profound.net/urlappendbot.html)
+User-agent: URL Control
+User-agent: URL_Spider_Pro
+User-agent: URLy Warning
+User-agent: URLy.Warning
+User-agent: VCI
+User-agent: VCI WebViewer VCI WebViewer Win32
+User-agent: VoidEYE
+User-agent: WWW-Collector-E
+User-agent: WWWOFFLE
+User-agent: Web Image Collector
+User-agent: Web Sucker
+User-agent: Web.Imge.Collector
+User-agent: WebAuto
+User-agent: WebAuto/3.40 (Win98; I)
+User-agent: WebBandit
+User-agent: WebBandit/3.50
+User-agent: WebCapture 2.0
+User-agent: WebCopier
+User-agent: WebCopier v.2.2
+User-agent: WebCopier v2.5
+User-agent: WebCopier v2.6
+User-agent: WebCopier v2.7a
+User-agent: WebCopier v2.8
+User-agent: WebCopier v3.0
+User-agent: WebCopier v3.0.1
+User-agent: WebCopier v3.2
+User-agent: WebCopier v3.2a
+User-agent: WebEMailExtrac.*
+User-agent: WebEnhancer
+User-agent: WebFetch
+User-agent: WebGo IS
+User-agent: WebLeacher
+User-agent: WebReaper
+User-agent: WebReaper [info@webreaper.net]
+User-agent: WebReaper [webreaper@otway.com]
+User-agent: WebReaper v9.1 . www.otway.com/webreaper
+User-agent: WebReaper v9.7 . www.webreaper.net
+User-agent: WebReaper v9.8 . www.webreaper.net
+User-agent: WebReaper vWebReaper v7.3 . www,otway.com/webreaper
+User-agent: WebSauger
+User-agent: WebSauger 1.20b
+User-agent: WebSauger 1.20j
+User-agent: WebSauger 1.20k
+User-agent: WebStripper
+User-agent: WebStripper/2.03
+User-agent: WebStripper/2.10
+User-agent: WebStripper/2.12
+User-agent: WebStripper/2.13
+User-agent: WebStripper/2.15
+User-agent: WebStripper/2.16
+User-agent: WebStripper/2.19
+User-agent: WebWhacker
+User-agent: WebZIP
+User-agent: WebZIP/2.75 (http://www.spidersoft.com)
+User-agent: WebZIP/3.65 (http://www.spidersoft.com)
+User-agent: WebZIP/3.80 (http://www.spidersoft.com)
+User-agent: WebZIP/4.0 (http://www.spidersoft.com)
+User-agent: WebZIP/4.1 (http://www.spidersoft.com)
+User-agent: WebZIP/4.21
+User-agent: WebZIP/4.21 (http://www.spidersoft.com)
+User-agent: WebZIP/5.0
+User-agent: WebZIP/5.0 (http://www.spidersoft.com)
+User-agent: WebZIP/5.0 PR1 (http://www.spidersoft.com)
+User-agent: WebZip
+User-agent: WebZip/4.0
+User-agent: WebmasterWorldForumBot
+User-agent: Website Quester
+User-agent: Website Quester . www.asona.org
+User-agent: Website Quester . www.esalesbiz.com/extra/
+User-agent: Website eXtractor
+User-agent: Website eXtractor (http://www.asona.org)
+User-agent: Website.Quester
+User-agent: Webster Pro
+User-agent: Wget
+User-agent: Wget/1.5.2
+User-agent: Wget/1.5.3
+User-agent: Wget/1.6
+User-agent: Wget/1.7
+User-agent: Wget/1.8
+User-agent: Wget/1.8.1
+User-agent: Wget/1.8.1+cvs
+User-agent: Wget/1.8.2
+User-agent: Wget/1.9-beta
+User-agent: Wget/1.13.4
+User-agent: Wget/1.13.4 (linux-gnu)
+User-agent: Wget/1.12 (linux-gnu)
+User-agent: Widow
+User-agent: Wotbox/2.01 (+http://www.wotbox.com/bot/)
+User-agent: Xaldon WebSpider
+User-agent: Xaldon WebSpider 2.5.b3
+User-agent: Xenu's
+User-agent: Xenu's Link Sleuth 1.1c
+User-agent: YYSpider (+http://www.yunyun.com/spider.html)
+User-agent: Zeus
+User-agent: Zeus 11389 Webster Pro V2.9 Win32
+User-agent: Zeus 11652 Webster Pro V2.9 Win32
+User-agent: Zeus 18018 Webster Pro V2.9 Win32
+User-agent: Zeus 26378 Webster Pro V2.9 Win32
+User-agent: Zeus 30747 Webster Pro V2.9 Win32
+User-agent: Zeus 32297 Webster Pro V2.9 Win32
+User-agent: Zeus 39206 Webster Pro V2.9 Win32
+User-agent: Zeus 41641 Webster Pro V2.9 Win32
+User-agent: Zeus 44238 Webster Pro V2.9 Win32
+User-agent: Zeus 51070 Webster Pro V2.9 Win32
+User-agent: Zeus 51674 Webster Pro V2.9 Win32
+User-agent: Zeus 51837 Webster Pro V2.9 Win32
+User-agent: Zeus 63567 Webster Pro V2.9 Win32
+User-agent: Zeus 6694 Webster Pro V2.9 Win32
+User-agent: Zeus 71129 Webster Pro V2.9 Win32
+User-agent: Zeus 82016 Webster Pro V2.9 Win32
+User-agent: Zeus 82900 Webster Pro V2.9 Win32
+User-agent: Zeus 84842 Webster Pro V2.9 Win32
+User-agent: Zeus 90872 Webster Pro V2.9 Win32
+User-agent: Zeus 94934 Webster Pro V2.9 Win32
+User-agent: Zeus 95245 Webster Pro V2.9 Win32
+User-agent: Zeus 95351 Webster Pro V2.9 Win32
+User-agent: Zeus 97371 Webster Pro V2.9 Win32
+User-agent: Zeus Link Scout
+User-agent: asterias
+User-agent: b2w/0.1
+User-agent: cosmos
+User-agent: eCatch
+User-agent: eCatch/3.0
+User-agent: hloader
+User-agent: httplib
+User-agent: humanlinks
+User-agent: larbin
+User-agent: larbin (samualt9@bigfoot.com)
+User-agent: larbin samualt9@bigfoot.com
+User-agent: larbin_2.6.2 (kabura@sushi.com)
+User-agent: larbin_2.6.2 (larbin2.6.2@unspecified.mail)
+User-agent: larbin_2.6.2 (listonATccDOTgatechDOTedu)
+User-agent: larbin_2.6.2 (vitalbox1@hotmail.com)
+User-agent: larbin_2.6.2 kabura@sushi.com
+User-agent: larbin_2.6.2 larbin2.6.2@unspecified.mail
+User-agent: larbin_2.6.2 larbin@correa.org
+User-agent: larbin_2.6.2 listonATccDOTgatechDOTedu
+User-agent: larbin_2.6.2 vitalbox1@hotmail.com
+User-agent: libWeb/clsHTTP
+User-agent: lwp-trivial
+User-agent: lwp-trivial/1.34
+User-agent: moget
+User-agent: moget/2.1
+User-agent: pavuk
+User-agent: pcBrowser
+User-agent: psbot
+User-agent: searchpreview
+User-agent: spanner
+User-agent: suzuran
+User-agent: tAkeOut
+User-agent: toCrawl/UrlDispatcher
+User-agent: turingos
+User-agent: webfetch/2.1.0
+User-agent: spbot
+User-agent: netseer 
+User-agent: Baiduspider/2.0 (+http://www.baidu.com/search/spider.html)
+User-agent: Baiduspider-video
+User-agent: Baiduspider-image
+User-agent: Screaming Frog SEO Spider
+User-agent: Mail.RU_Bot/2.0 (+http://go.mail.ru/help/robots)
+User-agent: classbot (+http://allclasses.com)
+User-agent: TweetmemeBot/3.0 (+http://tweetmeme.com/)
+User-agent: rogerbot/1.0 (http://moz.com/help/pro/what-is-rogerbot-, rogerbot-crawler+shiny@moz.com)
+disallow: /
+

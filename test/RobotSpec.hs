@@ -39,6 +39,9 @@ spec = do
     it "can read a token" $ do
       (parseOnly tokenP "foo") `shouldBe`
         Right "foo"
+    it "stringCI does something sane" $ do
+      parseOnly (stringCI "user-agent:") "User-agent:" `shouldBe`
+       Right "User-agent:"
     it "can read a user agent" $ do
       (parseOnly agentP "User-agent: *\n") `shouldBe`
         Right Wildcard
@@ -60,27 +63,6 @@ spec = do
     it "ignores the sitemap extension (and any other unrecognised text" $ do
       (parseOnly robotP "Sitemap: http:www.ebay.com/lst/PDP_US_main_index.xml\nUser-agent: *\nDisallow: /\n")
         `shouldBe` Right (([([Wildcard], [Disallow "/"])]), ["Sitemap: http:www.ebay.com/lst/PDP_US_main_index.xml"])
-
-  describe "regressions" $ do
-    it "cellularphonedepot regression" $ do
-      f <- BS.readFile (dirname ++ "/examples/cellularphonedepot.com")
-      parseOnly robotP f `shouldBe` Right ([([Wildcard],[Disallow "/*",Allow "/?okparam=",Allow "/$"])],[])
-
-
-
-
-
-
-
-
-  describe "smoke test - check we can read all the robots.txt examples" $
-    -- we should also verify if there were unparsed items
-    forM_ texts $ \(name,text) ->
-      it ("should parse " ++ name) $
-        parseRobots text `shouldSatisfy`
-          (\x -> 1 == length (rights [x])
-              -- head is safe here if first condition is met
-              && 0 == length (snd . head . rights $ [x]))
 
   -- the behaviour here doesn't seem to be rigorously specified: it
   -- seems obvious that if * can access a resource but FooBot is
@@ -158,24 +140,3 @@ spec = do
   --     canAccess "SpecialBot"  robot "/only_special" `shouldBe` True
   --   it "allows access to specialbot special area" $ do
   --     canAccess "OtherSpecial"  robot "/only_special" `shouldBe` True
-
-  describe "regressions" $ do
-    it "chooses the most specific user agent from helloworldweb" $ do
-      (Right hellobot) <- parseOnly robotP <$> liftIO (BS.readFile "./test/examples/helloworldweb2.com")
-      canAccess "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" hellobot "/" `shouldBe` False
-      canAccess "googlebot" hellobot "/" `shouldBe` True
-
-    it "operates correctly on clkmg.com" $ do
-      (Right hellobot) <- parseOnly robotP <$> liftIO (BS.readFile "./test/examples/clkmg.com")
-      canAccess "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" hellobot "/" `shouldBe` False
-
-
-  describe "incorrect robots files" $ do
-    it "treats HTML as garbage" $ do
-      parseRobots "<html><head>a thing</head><body>yo, i'm not a robots file</body></html>\n"
-        `shouldSatisfy` myIsLeft
-
-
-    it "can handle no-newline files" $ do
-      parseRobots "<html><head>a thing</head><body>yo, i'm not a robots file</body></html>"
-        `shouldSatisfy` myIsLeft
