@@ -1,4 +1,5 @@
-{-# LANGUAGE CPP, OverloadedStrings #-}
+{-# LANGUAGE CPP               #-}
+{-# LANGUAGE OverloadedStrings #-}
 module RegressionsSpec where
 import           Network.HTTP.Robots
 import           System.Directory
@@ -55,6 +56,10 @@ spec = do
     it "operates correctly on clkmg.com" $ do
       (Right hellobot) <- parseOnly robotP <$> liftIO (BS.readFile "./test/examples/clkmg.com")
       canAccess "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" hellobot "/" `shouldBe` False
+
+    it "operates correctly on kvsupply.com" $ do
+     (Right hellobot) <- parseOnly robotP <$> liftIO (BS.readFile "./test/examples/kvsupply.com")
+     canAccess "Mozilla/5.0 (compatible; meanpathbot/1.0; +http://www.meanpath.com/meanpathbot.html)" hellobot "/" `shouldBe` False
 
 
   describe "incorrect robots files" $ do
