@@ -1,4 +1,5 @@
-{-# LANGUAGE CPP, OverloadedStrings #-}
+{-# LANGUAGE CPP               #-}
+{-# LANGUAGE OverloadedStrings #-}
 module SmokeSpec where
 import           Network.HTTP.Robots
 import           System.Directory
@@ -28,8 +29,6 @@ texts = unsafePerformIO $ do
 
   -- this is just an ugly burn-in test - we collect examples of
   -- robots.txt and check we can read them all.
-
-main = hspec spec
 
 spec :: Spec
 spec = do

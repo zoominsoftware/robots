@@ -32,8 +32,6 @@ texts = unsafePerformIO $ do
   -- this is just an ugly burn-in test - we collect examples of
   -- robots.txt and check we can read them all.
 
-main = hspec spec
-
 spec :: Spec
 spec = do
 
